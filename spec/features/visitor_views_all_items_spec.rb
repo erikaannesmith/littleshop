@@ -8,7 +8,9 @@ describe "When a visitor views the items index page" do
 
         expect(page).to have_content(items[0].title)
         expect(page).to have_content(items[0].price)
+        expect(page).to have_content(items[0].image)
         expect(page).to have_content(items[1].title)
         expect(page).to have_content(items[1].price)
+        expect(page).to have_content(items[1].image)
     end
 end
