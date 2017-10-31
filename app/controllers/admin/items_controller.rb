@@ -5,7 +5,18 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
+    item = Item.new(item_params)
+    if item.save
+      
+    else
+      redirect_to admin_item_new
+    end
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:title, :description, :price, :image)
   end
 
 end
