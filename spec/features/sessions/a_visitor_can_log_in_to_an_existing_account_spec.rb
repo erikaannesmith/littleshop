@@ -5,13 +5,12 @@ describe "A visitor can go to the home page, click on a log in, and" do
 
     visit root_path
 
-    expect(page.status_code).to (200)
-    fill_in 'user[username]', with: "CheckOutMahKhakisBabySquirrel"
-    fill_in 'user[password]', with: "DiamondStuddedChinos"
+    expect(page.status_code).to eq(200)
+    fill_in 'session[username]', with: "CheckOutMahKhakisBabySquirrel"
+    fill_in 'session[password]', with: "DiamondStuddedChinos"
 
     click_on("Log In")
-    redirect_to login_path
-
+    expect(current_path).to eq(login_path)
 
     expect(page.status_code).to eq(200)
 
