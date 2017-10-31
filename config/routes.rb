@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :items
 
-  resources :categories
+  namespace :admin do
+    resources :items, only: [:index, :new, :create]
 
   get '/:name' => 'categories#show', as: :seecategory
+  end
 end
