@@ -20,11 +20,5 @@ RSpec.describe "Session Model Test" do
       expect(user).to be_invalid
     end
 
-    it 'is invalid if there are two users with the same user name' do
-      user_1 = User.create(username: "ChinoLover5", password: "123")
-      user_2 = User.create(username: "ChinoLover5", password: "345")
-
-      expect(user_2).to be_invalid
-    end
   end
 end
