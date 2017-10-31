@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "When a visitor visits '/:CATEGORY_NAME'" do
-  it "the visitor sees all items assigned to that category" do
+  xit "the visitor sees all items assigned to that category" do
     khakis = create_list(:item, 2, category: 0)
     chino = create(:item, category: 1)
 
