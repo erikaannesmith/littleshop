@@ -19,5 +19,6 @@ RSpec.describe "Session Model Test" do
 
       expect(user).to be_invalid
     end
+
   end
 end
