@@ -44,8 +44,11 @@ RSpec.feature "When a user adds an item to their cart" do
 
         expect(current_path).to eq("/cart")
 
+        save_and_open_page
+
         expect(page).to have_content("#{@item.title}")
         expect(page).to have_content("#{@item.description}")
-        expect(page).to have_content("#{@item.price}")       
+        expect(page).to have_content("#{@item.price}")
+        expect(page).to have_content("Total Price of Cart: $4.0")     
     end
 end
