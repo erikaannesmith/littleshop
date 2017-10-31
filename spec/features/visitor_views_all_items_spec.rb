@@ -3,9 +3,8 @@ require 'rails_helper'
 describe "When a visitor views the items index page" do
     it "they see all items" do
         items = create_list(:item, 2)
-        
+
         visit items_path
-        save_and_open_page
 
         expect(page).to have_content(items[0].title)
         expect(page).to have_content(items[0].description)
