@@ -1,6 +1,6 @@
 <h3>Enter Item Information</h3>
 
-<%= form_for(@item) do |f| %>
+<%= form_for(@item, url: admin_items_path) do |f| %>
   <p>
     <%= f.label :title %>
     <%= f.text_field :title %>

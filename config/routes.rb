@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :items
 
   namespace :admin do
-    resources :items, only: [:new]
+    resources :items, only: [:index, :new, :create]
   end
 end

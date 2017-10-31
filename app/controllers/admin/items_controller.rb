@@ -4,4 +4,8 @@ class Admin::ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def create
+    binding.pry
+  end
+
 end
