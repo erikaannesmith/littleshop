@@ -5,7 +5,14 @@ Rails.application.routes.draw do
   get '/:name' => 'categories#show', as: :seecategory
   namespace :admin do
     resources :items, only: [:index, :new, :create]
-
-
   end
+
+  root 'welcome#index'
+
+  delete '/logout', to: 'sessions#destroy'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
 end
