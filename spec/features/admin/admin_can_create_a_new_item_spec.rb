@@ -4,12 +4,11 @@ describe "When an admin visits 'admin/items/new', enters item information, and c
   it "the admin has created a new item" do
     #TODO incorporate category into test and update form and controller (private method)
     visit 'admin/items/new'
-    save_and_open_page
 
     fill_in "item[title]", with: "Item 1"
     fill_in "item[description]", with: "This is an awesome item."
     fill_in "item[price]", with: 100.0
-    fill_in "item[image]", with: Rails.root.join('1.jpg').to_s
+    attach_file "item[image]", '1.jpg'
     click_on "Create Item"
 
     expect(Item.first.title).to eq("Item 1")
