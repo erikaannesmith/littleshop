@@ -13,6 +13,7 @@
       <%= content_tag :div, message, class: type %>
     <% end %>
     <p>Cart: <%= @cart.total_count %></p>
+    <%= link_to "View Cart", '/cart' %>
     <%= yield %>
   </body>
 </html>

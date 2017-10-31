@@ -11,4 +11,8 @@ class CartsController < ApplicationController
         redirect_to items_path
     end
 
+    def show
+        @items = @cart.contents.map { |f| Item.find(f[0].to_i) }
+    end
+
 end

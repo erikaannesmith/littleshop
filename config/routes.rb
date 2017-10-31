@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :items
   
   resources :carts
+
+  get '/cart', to: 'carts#show'
 end

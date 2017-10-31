@@ -38,10 +38,14 @@ RSpec.feature "When a user adds an item to their cart" do
     it "can view the cart" do
         visit items_path
 
-        # @cart ||= Cart.new(session[:cart])
+        click_button "Add to Cart"
 
         click_link "View Cart"
 
-        expect(current_path).to eq(cart_path(@cart))
+        expect(current_path).to eq("/cart")
+
+        expect(page).to have_content("#{@item.title}")
+        expect(page).to have_content("#{@item.description}")
+        expect(page).to have_content("#{@item.price}")       
     end
 end
