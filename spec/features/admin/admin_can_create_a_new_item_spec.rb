@@ -8,7 +8,7 @@ describe "When an admin visits 'admin/items/new', enters item information, and c
     fill_in "item[title]", with: "Item 1"
     fill_in "item[description]", with: "This is an awesome item."
     fill_in "item[price]", with: 100.0
-    attach_file "item[image]", '1.jpg'
+    attach_file "item[image]", 'app/assets/images/1.jpg'
     click_on "Create Item"
 
     expect(Item.first.title).to eq("Item 1")
