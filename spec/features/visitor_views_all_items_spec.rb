@@ -5,7 +5,7 @@ describe "When a visitor views the items index page" do
         items = create_list(:item, 2)
         
         visit items_path
-        save_and_open_page
+        # save_and_open_page
 
         expect(page).to have_content(items[0].title)
         expect(page).to have_content(items[0].description)
