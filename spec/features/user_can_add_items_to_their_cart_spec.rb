@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.feature "When a user adds an item to their cart" do
     before :each do
-        @item = create(:item)
+        @category = create(:category)
+        @item = create(:item, category: @category)
     end
 
     it "a message is displayed" do
