@@ -7,5 +7,5 @@
 <%# image_tag(item.image.thumbnail) %>
     </li>
 <% end %>
-<p>Total Price of Cart: $<%= @items.map { |item| item.price }.reduce(:+) %>
+<p>Total Price of Cart: $<%= @cart.total_price %>
 </ul>

@@ -15,5 +15,11 @@ class Cart
 
   def count_of(id)
     contents[id.to_s].to_i
-  end  
+  end 
+  
+  def total_price
+    # look up key of contents (AS AN INTEGER) by id (item)
+    # multiply the price of ^^ by the value of contents (quantity)
+    contents.map { |k,v| Item.find(k.to_i).price * v }.reduce(:+)
+  end
 end
