@@ -1,0 +1,14 @@
+<ul>
+<% @items.each do |item| %>
+    <li>Item: <%= item.title %><br/>
+    Description: <%= item.description %><br/>
+    Price: $<%= item.price %>
+<%# Add thumbnail image %>
+<%# image_tag(item.image.thumbnail) %>
+
+<%# button/link to decrease quantity(contents value for item) by one %>
+    <%= button_to "Remove", remove_item_path(item_id: item.id) %>
+    </li>
+<% end %>
+<p>Total Price of Cart: $<%= @cart.total_price %>
+</ul>
