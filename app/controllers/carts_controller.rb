@@ -15,4 +15,13 @@ class CartsController < ApplicationController
         @items = @cart.contents.map { |f| Item.find(f[0].to_i) }
     end
 
+    def remove
+        @cart.remove_item(params[:item_id])
+        item = Item.find(params[:item_id])
+
+        flash[:notice] = "Successfully removed #{view_context.link_to item.title, item_path(item)} from your cart."
+        
+        redirect_to cart_path(@cart)
+    end
+
 end
