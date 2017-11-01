@@ -1,4 +1,8 @@
 <h4>Little Shop of Khakis and Chinos </h4>
-
+<% if session[:user_id].nil? %>
 <%= render partial: "form" %>
-<%= link_to "Create Account", users_path %>
+<%= link_to "Create Account", signup_path %>
+<% else  %>
+Welcome Back
+<%= link_to "Log Out", logout_path %>
+<% end %>
