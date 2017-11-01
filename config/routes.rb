@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :items
-  resources :categories, :except => [:show]
-  get ':slug' => 'categories#show'
+
 
   namespace :admin do
     resources :items, only: [:index, :new, :create]
@@ -18,6 +17,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   get '/signup' => 'users#new'
+
+  resources :categories, :except => [:show]
+  get ':slug' => 'categories#show'
 
 
 end
