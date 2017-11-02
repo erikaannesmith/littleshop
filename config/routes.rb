@@ -7,10 +7,12 @@ Rails.application.routes.draw do
 
   get '/cart', to: 'carts#show'
 
-  get '/:name' => 'categories#show', as: :seecategory
+
+  
 
   post '/cart_add', to: 'carts#add', as: :add_item
   post '/cart_sub', to: 'carts#subtract', as: :subtract_item
+
   post '/cart', to: 'carts#remove', as: :remove_item
 
   namespace :admin do
