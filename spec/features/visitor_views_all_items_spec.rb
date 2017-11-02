@@ -7,6 +7,7 @@ describe "When a visitor views the items index page" do
 
         visit items_path
 
+        expect(page).to have_link("#{category.name}")
         expect(page).to have_content(items[0].title)
         expect(page).to have_content(items[0].description)
         expect(page).to have_content(items[0].price)
