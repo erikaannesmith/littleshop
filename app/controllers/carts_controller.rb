@@ -17,15 +17,21 @@ class CartsController < ApplicationController
 
   def subtract
     @cart.subtract_item(params[:item_id])
-    # item = Item.find(params[:item_id])
-
-    # flash[:notice] = "Successfully removed #{view_context.link_to item.title, item_path(item)} from your cart."
 
     redirect_to cart_path(@cart)
   end
 
   def add
     @cart.add_item(params[:item_id])
+
+    redirect_to cart_path(@cart)
+  end
+
+  def remove
+    @cart.remove_item(params[:item_id])
+    item = Item.find(params[:item_id])
+
+    flash[:notice] = "Successfully removed #{view_context.link_to item.title, item_path(item)} from your cart."
 
     redirect_to cart_path(@cart)
   end

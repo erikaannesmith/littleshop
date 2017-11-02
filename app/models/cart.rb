@@ -25,4 +25,8 @@ class Cart
     contents[id.to_s] = contents[id.to_s] - 1
     contents.delete(id) if contents[id] == 0
   end
+
+  def remove_item(id)
+    contents.delete(id)
+  end
 end
