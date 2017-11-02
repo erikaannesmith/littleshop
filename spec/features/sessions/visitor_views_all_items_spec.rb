@@ -2,8 +2,9 @@ require 'rails_helper'
 
 describe "When a visitor views the items index page" do
     it "they see all items" do
-        items = create_list(:item, 2)
-        
+        category = create(:category)
+        items = create_list(:item, 2, category: category)
+
         visit items_path
         # save_and_open_page
 
