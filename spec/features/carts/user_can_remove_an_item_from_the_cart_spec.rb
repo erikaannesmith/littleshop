@@ -19,7 +19,7 @@ describe "User visits the cart" do
         expect(page).to have_content("Cart: 0")
         expect(page).to have_content("Successfully removed #{item.title} from your cart.")
         expect(page).not_to have_content("Item: #{item.title}")
-
+        expect(page).to have_content("Total Price of Cart: $0")
         expect(page).to have_link(item.title)
 
         click_link item.title
