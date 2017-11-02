@@ -18,6 +18,7 @@ class Cart
   end
 
   def total_price
+    return 0 if contents.empty?
     contents.map { |k,v| Item.find(k.to_i).price * v }.reduce(:+)
   end
 
