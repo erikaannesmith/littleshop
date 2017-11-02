@@ -50,6 +50,6 @@ RSpec.feature "When a user adds an item to their cart" do
         expect(page).to have_content("#{@item.title}")
         expect(page).to have_content("#{@item.description}")
         expect(page).to have_content("#{@item.price}")
-        expect(page).to have_content("Total Price of Cart: $8.0")     
+        expect(page).to have_content("Total Price of Cart: $14.0")     
     end
 end

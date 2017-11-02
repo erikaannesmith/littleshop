@@ -30,7 +30,7 @@ describe "User visits the cart" do
         click_on "View Cart"
 
         click_on "Remove"
-        save_and_open_page
+
         expect(page).to have_content("Cart: 0")
         expect(page).not_to have_content("Item: #{item.title}")
     end
