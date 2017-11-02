@@ -15,14 +15,23 @@ class Cart
 
   def count_of(id)
     contents[id.to_s].to_i
-  end 
-  
+  end
+
   def total_price
     contents.map { |k,v| Item.find(k.to_i).price * v }.reduce(:+)
   end
 
-  def remove_item(id)
+  def subtract_item(id)
     contents[id.to_s] = contents[id.to_s] - 1
     contents.delete(id) if contents[id] == 0
+  end
+
+  def remove_item(id)
+    contents.delete(id)
+  end
+
+  def item_subtotal(id)
+    item = Item.find(id)
+    item.price * count_of(id)
   end
 end
