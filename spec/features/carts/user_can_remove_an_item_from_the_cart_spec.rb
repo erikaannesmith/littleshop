@@ -16,22 +16,15 @@ describe "User visits the cart" do
 
         click_on "Remove"
 
-        expect(page).to have_content("Cart: 1")
-        expect(page).to have_content("Successfully removed #{item.title} from your cart.")
-
-        within('.notice') do
-            expect(page).to have_link("#{item.title}")
-            
-            click_on "#{item.title}"
-
-            expect(current_path).to eq(item_path(item))
-        end
-
-        click_on "View Cart"
-
-        click_on "Remove"
-
         expect(page).to have_content("Cart: 0")
+        expect(page).to have_content("Successfully removed #{item.title} from your cart.")
         expect(page).not_to have_content("Item: #{item.title}")
+
+        expect(page).to have_link(item.title)
+
+        click_link item.title
+
+        expect(current_path).to eq(item_path(item))
+
     end
 end
