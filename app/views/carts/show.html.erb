@@ -4,6 +4,7 @@
   Description: <%= item.description %><br/>
   Price: $<%= item.price %>
   Quantity: <%= @cart.count_of(item.id) %>
+  Subtotal: $<%= @cart.item_subtotal(item.id) %>
 <%# Add thumbnail image %>
 <%# image_tag(item.image.thumbnail) %>
   <%= link_to "-", subtract_item_path(item_id: item.id), method: :post %>
