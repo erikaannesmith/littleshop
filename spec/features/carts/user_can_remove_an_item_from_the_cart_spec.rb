@@ -23,7 +23,8 @@ describe "User visits the cart" do
         expect(page).to have_link(item.title)
 
         click_link item.title
-        
+
         expect(current_path).to eq(item_path(item))
+
     end
 end
