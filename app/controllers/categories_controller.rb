@@ -2,10 +2,11 @@ class CategoriesController < ApplicationController
 
 
   def show
-    @category = Category.where(name: params[:name].downcase).first
-
+    @category = Category.find_by(slug: params[:slug])
+    if @category.nil?
+      not_found
+    end
     @items = @category.items.all
   end
-
 
 end

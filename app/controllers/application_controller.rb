@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
     @cart ||= Cart.new(session[:cart])
   end
 
+
+  def not_found
+    raise ActionController::RoutingError.new("Not Found")
+  end
 end
