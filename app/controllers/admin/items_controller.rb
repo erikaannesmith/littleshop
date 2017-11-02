@@ -7,16 +7,16 @@ class Admin::ItemsController < ApplicationController
   def create
     item = Item.new(item_params)
     if item.save
-      
+
     else
-      redirect_to admin_item_new
+      redirect_to new_admin_item_path
     end
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :price, :image)
+    params.require(:item).permit(:title, :description, :price, :image, :category_id)
   end
 
 end
