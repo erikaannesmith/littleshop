@@ -4,6 +4,6 @@
     <li>Description: <%= item.description %><br/></li>
     <li>Price: $<%= item.price %><br/></li>
     <%= image_tag(item.image) %>
-    <%= button_to "Add to Cart", carts_path(item_id: item.id) %>
+    <%= link_to "Add to Cart", carts_path(item_id: item.id), method: :post %>
 <% end %>
 </ul>
