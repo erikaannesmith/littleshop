@@ -7,6 +7,6 @@
     <li>Description: <%= item.description %><br/></li>
     <li>Price: $<%= item.price %><br/></li>
     <%= image_tag src="#{item.image}" %>
-    <%= link_to "Add to Cart", carts_path(item_id: item.id), method: :post %>
+    <%= link_to "Add to Cart", carts_path(item_id: item.id).parameterize , method: :post %>
 <% end %>
 </ul>
