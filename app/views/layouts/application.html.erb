@@ -9,14 +9,28 @@
   </head>
 
   <body>
+    <nav>
+    <div class="align-left">
+      <h4><%= link_to "Little Shop of Khakis and Chinos", items_path %></h4>
+      <%= link_to "Account", root_path %>
+    </div>
+    <div class="align-right">
+      <% if session[:user_id].nil? %>
+      <%= render partial: "form" %>
+      <%= link_to "Create Account", signup_path %>
+      <% else  %>
+      Welcome Back
+      <%= link_to "Log Out", logout_path %>
+      <% end %>
+      <div class="align-right">
+        <p>Cart: <%= @cart.total_count %></p>
+        <%= link_to "View Cart", '/cart' %>
+      </div>
+    </div
+    </nav>
     <% flash.each do |type, message| %>
       <%= content_tag :div, sanitize(message), class: type %>
     <% end %>
-    <p>Cart: <%= @cart.total_count %></p>
-    <%= link_to "View Cart", '/cart' %>
-    <h4><%= link_to "Little Shop of Khakis and Chinos", items_path %></h4>
-    <%= link_to "Account", root_path %>
-    <%# Change Account link to user account %>
     <%= yield %>
   </body>
 </html>
