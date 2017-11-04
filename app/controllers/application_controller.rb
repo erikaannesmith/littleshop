@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     raise ActionController::RoutingError.new("Not Found")
   end
 
-private
+
 
  def login(user)
    session[:user_id] = user.id
