@@ -8,11 +8,11 @@ describe "When a visitor views the items index page" do
         visit items_path
 
         expect(page).to have_link("#{category.name}")
-        expect(page).to have_content(items[0].title)
+        expect(page).to have_link(items[0].title)
         expect(page).to have_content(items[0].description)
         expect(page).to have_content(items[0].price)
         expect(page).to have_css("img[src='#{items[0].image}']")
-        expect(page).to have_content(items[1].title)
+        expect(page).to have_link(items[1].title)
         expect(page).to have_content(items[1].description)
         expect(page).to have_content(items[1].price)
         expect(page).to have_css("img[src='#{items[1].image}']")
