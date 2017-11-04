@@ -16,7 +16,10 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :new, :create]
   end
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show] do
+    resources :orders, only: [:index, :show]
+  end
+
 
   root 'welcome#index'
 
@@ -30,6 +33,4 @@ Rails.application.routes.draw do
 
   resources :categories, :except => [:show]
   get ':slug' => 'categories#show', as: :category_slug
-
-
 end
