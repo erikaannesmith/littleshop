@@ -1,0 +1,33 @@
+nav{
+  background: white;
+  flex
+
+}
+
+.right_header {
+
+
+}
+
+.align-right{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  top:0;
+  right:0;
+  flex-direction: column;
+  float:right;
+  position:absolute;
+}
+
+.align-cart{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  top:0;
+  right:0;
+  flex-direction: column;
+  float:right;
+}
