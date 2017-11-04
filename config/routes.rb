@@ -28,7 +28,6 @@ Rails.application.routes.draw do
 
   get '/dashboard' => "users#show", as: "dashboard"
 
-
   resources :categories, :except => [:show]
   get ':slug' => 'categories#show', as: :category_slug
 
