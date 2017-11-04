@@ -13,8 +13,6 @@ describe "When an admin visits 'admin/items/new', enters item information, and c
     select category.name, from: 'item[category_id]'
     click_on "Create Item"
 
-save_and_open_page
-
     expect(Item.first.title).to eq("Item 1")
     expect(Item.first.description).to eq("This is an awesome item.")
     expect(Item.first.price).to eq(100.0)

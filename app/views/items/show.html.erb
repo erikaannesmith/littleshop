@@ -1,0 +1,8 @@
+<ul>
+    <li>Item: <%= @item.title %><br/></li>
+    <li>Description: <%= @item.description %><br/></li>
+    <li>Price: $<%= @item.price %><br/></li>
+    <li>Category: <%= link_to @item.category.name, "/#{@item.category.slug}" %>
+    <%= image_tag src="#{@item.image}" %>
+    <%= link_to "Add to Cart", carts_path(item_id: @item.id) , method: :post %>    
+</ul>
