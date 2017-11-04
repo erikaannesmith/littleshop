@@ -1,4 +1,4 @@
-class Admin::ItemsController < ApplicationController
+class Admin::ItemsController < Admin::BaseController
 
   def new
     @item = Item.new
@@ -7,7 +7,7 @@ class Admin::ItemsController < ApplicationController
   def create
     item = Item.new(item_params)
     if item.save
-
+      redirect_to items_path
     else
       redirect_to new_admin_item_path
     end

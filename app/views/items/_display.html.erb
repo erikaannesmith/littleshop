@@ -1,0 +1,13 @@
+<ul>
+<% @items.each do |item| %>
+    <li>Item: <%= link_to item.title, item_path(item) %><br/></li>
+    <li>Description: <%= item.description %><br/></li>
+    <li>Price: <%= number_to_currency(item.price) %><br/></li>
+    <%= image_tag(item.image.thumb) %>
+    <% if item.retired? %>
+      <div>Item Retired</div>
+    <% else %>
+      <%= link_to "Add to Cart", carts_path(item_id: item.id) , method: :post %>
+    <% end %>
+<% end %>
+</ul>

@@ -3,12 +3,5 @@
 <% @categories.each do |category| %>
   <%= link_to category.name, category_slug_path(category.name).parameterize %>
 <% end %>
-<ul>
-<% @items.each do |item| %>
-    <li>Item: <%= item.title %><br/></li>
-    <li>Description: <%= item.description %><br/></li>
-    <li>Price: $<%= item.price %><br/></li>
-    <%= image_tag src="#{item.image}" %>
-    <%= link_to "Add to Cart", carts_path(item_id: item.id) , method: :post %>
-<% end %>
-</ul>
+
+<%= render partial: 'display' %>

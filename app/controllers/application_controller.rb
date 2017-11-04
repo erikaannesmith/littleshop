@@ -9,11 +9,13 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def not_found
-    raise ActionController::RoutingError.new("Not Found")
+  def render_404
+    render file: "#{Rails.root}/public/404", layout: false, status: :not_found
   end
 
-private
+  def current_admin?
+    current_user && current_user.admin?
+  end
 
  def login(user)
    session[:user_id] = user.id
@@ -30,4 +32,5 @@ private
  def auth
    redirect_to login_url, alert: 'You must login to access that page' unless logged_in?
  end
+
 end

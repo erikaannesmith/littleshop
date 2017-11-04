@@ -1,0 +1,12 @@
+<ul>
+    <li>Item: <%= @item.title %><br/></li>
+    <li>Description: <%= @item.description %><br/></li>
+    <li>Price: <%= number_to_currency(@item.price) %><br/></li>
+    <li>Category: <%= link_to @item.category.name, "/#{@item.category.slug}" %>
+    <%= image_tag(@item.image) %>
+    <% if @item.retired? %>
+      <div>Item Retired</div>
+    <% else %>
+      <%= link_to "Add to Cart", carts_path(item_id: @item.id) , method: :post %>
+    <% end %>
+</ul>
