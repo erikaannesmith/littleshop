@@ -16,7 +16,7 @@ describe "A visitor can go to the home page and it" do
 
     click_on("Create Account")
 
-    expect(current_path).to eq("/users/#{User.last.id}")
+    expect(current_path).to eq("/dashboard")
 
     expect(page.status_code).to eq(200)
 

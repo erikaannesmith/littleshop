@@ -2,13 +2,14 @@ require 'rails_helper'
 
 describe "When a visitor views the items index page" do
     it "they see all items" do
-        category = create(:category)
-        items = create_list(:item, 2, category: category)
-
-        visit items_path
+      category = create(:category)
+      items = create_list(:item, 2, category: category)
 
       visit items_path
 
+      visit items_path
+
+      expect(page).to have_link("#{category.name}")
       expect(page).to have_content(items[0].title)
       expect(page).to have_content(items[0].description)
       expect(page).to have_content(items[0].price)

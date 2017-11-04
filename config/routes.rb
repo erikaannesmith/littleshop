@@ -7,9 +7,6 @@ Rails.application.routes.draw do
 
   get '/cart', to: 'carts#show'
 
-
-  
-
   post '/cart_add', to: 'carts#add', as: :add_item
   post '/cart_sub', to: 'carts#subtract', as: :subtract_item
 
@@ -29,8 +26,10 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
 
+  get '/dashboard' => "users#show", as: "dashboard"
+
   resources :categories, :except => [:show]
-  get ':slug' => 'categories#show'
+  get ':slug' => 'categories#show', as: :category_slug
 
 
 end
