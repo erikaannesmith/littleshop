@@ -11,7 +11,9 @@
 <body>
   <nav>
     <div class="right_header">
-      <h1><%= link_to ("Khakis and Chinos"), items_path %></h1>
+      <a href="/items">
+        <img border = "0" alt = "Items_Home" src = "header_logo.jpg" width="150" height = "150">
+      </a>
         <%= link_to "Account", root_path %>
     </div>
     <div class="align-right">
@@ -26,7 +28,7 @@
         Cart: <%= @cart.total_count %>
         <%= link_to "View Cart", '/cart' %>
       </div>
-    
+
     </div>
     </nav>
     <% flash.each do |type, message| %>
