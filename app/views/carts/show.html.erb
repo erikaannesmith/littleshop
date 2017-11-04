@@ -18,6 +18,5 @@
   <%= link_to "Create Account", signup_path %>
   <%# right now, this goes straight to the create account path, where there is a link to where they can log in.. is that ok? %>
 <% elsif current_user.default? %>
-  <%= link_to "Checkout", "/dashboard" %>
-  <%# this will need to be routed somewhere else, but for now, I have it going to the dashboard.. will eventually be the orders index for that user I believe. %>
+  <%= link_to "Checkout", user_orders_path(current_user), method: :post %>
 <% end %>

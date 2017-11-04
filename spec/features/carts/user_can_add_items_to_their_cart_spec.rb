@@ -52,4 +52,23 @@ RSpec.feature "When a user adds an item to their cart" do
         expect(page).to have_content("#{@item.price}")
         expect(page).to have_content("Total Price of Cart: $#{@item.price * 2}")
     end
+
+    it "user can checkout" do
+        user = User.create(username: "Erika", password: "Erika")
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)        
+
+        visit items_path
+
+        click_on "Add to Cart"
+
+        click_on "View Cart"
+
+        expect(page).to have_link("Checkout")
+
+        click_link "Checkout"
+
+        expect(current_path).to eq(user_orders_path(user))
+
+        expect(user.orders.last.price).to eq(@item.price)
+    end
 end
