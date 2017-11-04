@@ -4,5 +4,9 @@
     <li>Price: <%= number_to_currency(@item.price) %><br/></li>
     <li>Category: <%= link_to @item.category.name, "/#{@item.category.slug}" %>
     <%= image_tag(@item.image) %>
-    <%= link_to "Add to Cart", carts_path(item_id: @item.id) , method: :post %>
+    <% if @item.retired? %>
+      <div>Item Retired</div>
+    <% else %>
+      <%= link_to "Add to Cart", carts_path(item_id: @item.id) , method: :post %>
+    <% end %>
 </ul>
