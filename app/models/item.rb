@@ -6,4 +6,9 @@ class Item < ApplicationRecord
 
   belongs_to :category
 
+  enum status: ["Active", "Retired"]
+
+  def retired?
+    status == "Retired"
+  end
 end
