@@ -1,7 +1,0 @@
-<% if session[:user_id].nil? %>
-<%= render partial: "form" %>
-<%= link_to "Create Account", signup_path %>
-<% else  %>
-Welcome Back
-<%= link_to "Log Out", logout_path %>
-<% end %>
