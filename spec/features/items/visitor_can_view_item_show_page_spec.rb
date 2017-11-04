@@ -31,4 +31,14 @@ describe "visitor goes to items show page" do
 
     expect(current_path).to eq("/#{items[0].category.slug}")
   end
+
+  it "they will see 'Item Retired' instead of a link to add item to cart if the item has been retired" do
+    category = create(:category)
+    item = create(:item, category: category, status: 1)
+
+    visit item_path(item)
+
+    expect(page).to have_content("Item Retired")
+    expect(page).not_to have_link("Add To Cart")
+  end
 end

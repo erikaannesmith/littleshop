@@ -15,7 +15,7 @@
 </ul>
 
 <% if current_user.nil? %>
-  <%= link_to "Log In or Create Account", signup_path %>
+  <%= link_to "Create Account", signup_path %>
   <%# right now, this goes straight to the create account path, where there is a link to where they can log in.. is that ok? %>
 <% elsif current_user.default? %>
   <%= link_to "Checkout", "/dashboard" %>
