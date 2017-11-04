@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def not_found
-    raise ActionController::RoutingError.new("Not Found")
+  def render_404
+    render file: "#{Rails.root}/public/404", layout: false, status: :not_found
   end
 
   def current_admin?
