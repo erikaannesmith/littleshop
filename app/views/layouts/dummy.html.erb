@@ -22,10 +22,10 @@
       Welcome Back
       <%= link_to "Log Out", logout_path %>
       <% end %>
-    <div class="align-right">
-      <p>Cart: <%= @cart.total_count %></p>
-      <%= link_to "View Cart", '/cart' %>
-    </div>
+      <div class="align-right">
+        <p>Cart: <%= @cart.total_count %></p>
+        <%= link_to "View Cart", '/cart' %>
+      </div>
     </div
     </nav>
     <% flash.each do |type, message| %>
