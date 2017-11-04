@@ -3,5 +3,33 @@
 nav{
    display: flex;
    justify-content: space-between;
-   flex-direction: row-reverse
+   flex-direction: row;
+   background-color: lavender;
+
+}
+
+.right_header{
+  top:0;
+  left:0;
+}
+
+.align-right{
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  top:0;
+  right:0
+}
+
+.align-cart{
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left:20px;
+  top:1;
 }
