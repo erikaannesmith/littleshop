@@ -1,3 +1,3 @@
 class Order < ApplicationRecord
-  enums role: ["ordered", "paid", "cancelled", "shipped"]
+  enum role: ["ordered", "paid", "cancelled", "shipped"]
 end

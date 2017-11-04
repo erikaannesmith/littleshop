@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171104202515) do
+ActiveRecord::Schema.define(version: 20171104211327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -34,9 +35,10 @@ ActiveRecord::Schema.define(version: 20171104202515) do
   create_table "orders", force: :cascade do |t|
     t.string "status", default: "0"
     t.float "price"
-    t.text "contents"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.hstore "contents"
+    t.index ["contents"], name: "index_orders_on_contents", using: :gist
   end
 
   create_table "users", force: :cascade do |t|
