@@ -14,9 +14,9 @@ describe "A visitor can go to the home page and it" do
     fill_in 'user[username]', with: "CheckOutMahKhakisBabySquirrel"
     fill_in 'user[password]', with: "DiamondStuddedChinos"
 
-    click_on("Create Account")
+    click_button("Create Account")
 
-    expect(current_path).to eq("/users/#{User.last.id}")
+    expect(current_path).to eq("/dashboard")
 
     expect(page.status_code).to eq(200)
 

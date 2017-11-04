@@ -1,7 +1,11 @@
-<h4> Item List </h4>
-<% @items.each do |item| %>
-<%= item.title %>
-<%= item.description %>
-<%= item.price %>
-<%= image_tag src="#{item.image}" %>
-<% end %>
+
+<body>
+  <h4> Item List </h4>
+  <% @items.each do |item| %>
+  <%= item.title %>
+  <%= item.description %>
+  <%= item.price %>
+  <%= image_tag src="#{item.image}" %>
+  <% end %>
+
+</body>

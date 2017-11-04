@@ -1,0 +1,52 @@
+nav{
+  background:white;
+  font-style: normal;
+  font-family:serif;
+  font-size:20px;
+  height:20%;
+
+.left_header{
+    position:absolute;
+    float:left;
+    padding-left: 0px;
+    padding-right: 10px;
+    padding-top: 00px;
+    padding-bottom: 10px;
+    display:flex;
+    flex-direction: column;
+    top:0;
+    bottom:0;
+  }
+
+  .align-right{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 35px;
+    padding-bottom: 20px;
+    top:0;
+    right:0;
+    float:right;
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+
+  }
+
+
+  .align-cart{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    top:0;
+    right:0;
+    flex-direction: column;
+    float:right;
+
+  }
+}
+
+body{
+  padding-top:100px;
+}

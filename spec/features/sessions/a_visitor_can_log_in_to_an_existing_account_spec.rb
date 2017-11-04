@@ -11,10 +11,10 @@ describe "A visitor can go to the home page, click on a log in, and" do
     fill_in 'session[password]', with: "DiamondStuddedChinos"
 
     click_on("Log In")
-    expect(current_path).to eq("/users/#{user.id}")
+    expect(current_path).to eq("/dashboard")
 
     expect(page.status_code).to eq(200)
-    expect(page).to have_content("Welcome User!")
+  
 
   end
 
@@ -28,10 +28,10 @@ describe "A visitor can go to the home page, click on a log in, and" do
     fill_in 'session[password]', with: "DiamondStuddedChinos"
 
     click_on("Log In")
-    expect(current_path).to eq("/users/#{user.id}")
+    expect(current_path).to eq("/dashboard")
 
     expect(page.status_code).to eq(200)
-    expect(page).to have_content("Welcome User!")
+
 
     click_on("Log Out")
     expect(current_path).to eq(root_path)
