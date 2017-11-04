@@ -8,7 +8,6 @@ describe 'a visitor can see all items associated with a category' do
     visit items_path
     click_link "Khakis"
 
-    expect(page).to have_content("Item List")
     expect(page).to have_content("Diamond Studded Hot Pants")
     expect(page).to have_content("So Hot Right Now")
   end

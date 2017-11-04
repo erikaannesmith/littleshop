@@ -14,8 +14,6 @@ describe "A visitor can go to the home page, click on a log in, and" do
     expect(current_path).to eq("/dashboard")
 
     expect(page.status_code).to eq(200)
-  
-
   end
 
   it "will have a log out page that will redirect back to root index" do
@@ -31,7 +29,6 @@ describe "A visitor can go to the home page, click on a log in, and" do
     expect(current_path).to eq("/dashboard")
 
     expect(page.status_code).to eq(200)
-
 
     click_on("Log Out")
     expect(current_path).to eq(root_path)
