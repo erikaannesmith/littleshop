@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :items, only: [:index, :new, :create]
+    get '/dashboard' => 'dashboard#index', as: "dashboard"
   end
+
 
   resources :users, only: [:new, :create, :show]
 
@@ -27,7 +29,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
 
   get '/dashboard' => "users#show", as: "dashboard"
-  
+
   resources :categories, :except => [:show]
   get ':slug' => 'categories#show', as: :category_slug
 
