@@ -2,16 +2,16 @@
 <% @items.each do |item| %>
   <li>Item: <%= item.title %><br/>
   Description: <%= item.description %><br/>
-  Price: $<%= item.price %>
+  Price: <%= number_to_currency(item.price) %>
   Quantity: <%= @cart.count_of(item.id) %>
-  Subtotal: $<%= @cart.item_subtotal(item.id) %>
+  Subtotal: <%= number_to_currency(@cart.item_subtotal(item.id)) %>
   <%= image_tag(item.image.thumb) %>
   <%= link_to "-", subtract_item_path(item_id: item.id), method: :post %>
   <%= link_to "+", add_item_path(item_id: item.id), method: :post %>
   <%= link_to "Remove", remove_item_path(item_id: item.id), method: :post %>
   </li>
 <% end %>
-<p>Total Price of Cart: $<%= @cart.total_price %>
+<p>Total Price of Cart: <%= number_to_currency(@cart.total_price) %>
 </ul>
 
 <% if current_user.nil? %>
