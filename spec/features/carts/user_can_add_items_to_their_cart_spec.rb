@@ -67,9 +67,7 @@ RSpec.feature "When a user adds an item to their cart" do
 
         click_link "Checkout"
 
-        expect(current_path).to eq(user_orders_path(user))
         expect(user.orders.last.total_price).to eq(@item.price)
-
-        expect(current_path).to eq('/orders')
+        expect(current_path).to eq(orders_path)
     end
 end

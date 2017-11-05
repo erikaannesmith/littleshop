@@ -18,10 +18,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :create, :show] do
-    resources :orders, only: [:index, :show, :create]
+    resources :orders, only: [:show, :create]
   end
 
-  get '/orders', to: "users#orders", as: :order
+  get '/orders', to: "orders#index", as: :orders
 
   root 'welcome#index'
 

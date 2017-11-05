@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     @order.update(user_id: current_user.id)
     flash[:notice] = "Order was successfully placed"
 
-    redirect_to order_path
+    redirect_to orders_path
   end
 
 end
