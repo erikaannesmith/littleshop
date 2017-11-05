@@ -17,5 +17,7 @@
 <p>Order Submitted @ <%= @order.created_at %></p>
 
 <% if @order.status == ("completed"||"cancelled") %>
-  <p>Order Updated @ <%= @order.updated_at %></p>
+  <p>Order <%= @order.status %> @ <%= @order.updated_at %></p>
 <% end %>
+
+
