@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :create]
   end
 
+  get '/orders', to: "users#orders", as: :order
+
   root 'welcome#index'
 
   get '/logout', to: 'sessions#destroy'
