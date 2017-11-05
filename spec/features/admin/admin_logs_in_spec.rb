@@ -6,9 +6,9 @@ describe 'when an admin logs in' do
     @users = create_list(:user, 2)
     @items = create_list(:item, 5, category: @category)
     Order.create(total_price: (@items[0].price * 2), user_id: @users[0].id)
-    Order.create(total_price: (@items[1].price * 3), user_id: @users[0].id)
-    Order.create(total_price: (@items[2].price * 2), user_id: @users[0].id)
-    Order.create(total_price: (@items[3].price * 2), user_id: @users[1].id)
+    Order.create(total_price: (@items[1].price * 3), user_id: @users[0].id, status: 1)
+    Order.create(total_price: (@items[2].price * 2), user_id: @users[0].id, status: 2)
+    Order.create(total_price: (@items[3].price * 2), user_id: @users[1].id, status: 3)
     Order.create(total_price: (@items[4].price * 2), user_id: @users[1].id)
     @admin = User.create(username: '123', password: "123", role: 1)
 
@@ -30,5 +30,12 @@ describe 'when an admin logs in' do
     expect(page).to have_link("Order ##{Order.third.id}")
     expect(page).to have_link("Order ##{Order.fourth.id}")
     expect(page).to have_link("Order ##{Order.fifth.id}")
+  end
+
+  it "the admin sees links to filter orders by status type" do
+    expect(page).to have_link("Ordered")
+    expect(page).to have_link("Paid")
+    expect(page).to have_link("Cancelled")
+    expect(page).to have_link("Completed")
   end
 end

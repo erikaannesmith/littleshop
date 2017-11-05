@@ -1,3 +1,7 @@
 <h4>Admin Dashboard</h4>
 
+<% @orders.status_types.each do |type| %>
+  <span><%= link_to type, admin_dashboard_path(order_type: type) %></span>
+<% end %>
+
 <%= render partial: 'shared/order_list' %>
