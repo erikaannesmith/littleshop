@@ -1,12 +1,17 @@
 class Admin::DashboardController < Admin::BaseController
 
   def index
-    @orders = all_orders
+    @orders = choose_orders
   end
 
   private
 
-  def all_orders
-    @orders = Order.all
+  def choose_orders
+    if order_filter = params[:order_type]
+      @orders = Order.where(status: order_filter)
+    else
+      @orders = Order.all
+    end
   end
+
 end

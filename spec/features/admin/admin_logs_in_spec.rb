@@ -38,4 +38,44 @@ describe 'when an admin logs in' do
     expect(page).to have_link("Cancelled")
     expect(page).to have_link("Completed")
   end
+
+  it "the admin can click on 'Ordered' to see only orders of that type" do
+    click_link "Ordered"
+
+    expect(page).to have_link("Order ##{Order.first.id}")
+    expect(page).not_to have_link("Order ##{Order.second.id}")
+    expect(page).not_to have_link("Order ##{Order.third.id}")
+    expect(page).not_to have_link("Order ##{Order.fourth.id}")
+    expect(page).to have_link("Order ##{Order.fifth.id}")
+  end
+
+  it "the admin can click on 'Paid' to see only orders of that type" do
+    click_link "Paid"
+
+    expect(page).not_to have_link("Order ##{Order.first.id}")
+    expect(page).to have_link("Order ##{Order.second.id}")
+    expect(page).not_to have_link("Order ##{Order.third.id}")
+    expect(page).not_to have_link("Order ##{Order.fourth.id}")
+    expect(page).not_to have_link("Order ##{Order.fifth.id}")
+  end
+
+  it "the admin can click on 'Cancelled' to see only orders of that type" do
+    click_link "Cancelled"
+
+    expect(page).not_to have_link("Order ##{Order.first.id}")
+    expect(page).not_to have_link("Order ##{Order.second.id}")
+    expect(page).to have_link("Order ##{Order.third.id}")
+    expect(page).not_to have_link("Order ##{Order.fourth.id}")
+    expect(page).not_to have_link("Order ##{Order.fifth.id}")
+  end
+
+  it "the admin can click on 'Completed' to see only orders of that type" do
+    click_link "Completed"
+
+    expect(page).not_to have_link("Order ##{Order.first.id}")
+    expect(page).not_to have_link("Order ##{Order.second.id}")
+    expect(page).not_to have_link("Order ##{Order.third.id}")
+    expect(page).to have_link("Order ##{Order.fourth.id}")
+    expect(page).not_to have_link("Order ##{Order.fifth.id}")
+  end
 end
