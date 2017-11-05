@@ -27,7 +27,7 @@ describe "User checks out a cart" do
     expect(page).to have_content("Order ##{Order.last.id}")
   end
 
-  xit "user can view order show page" do
+  it "user can view order show page" do
     visit items_path
 
     click_on "Add to Cart"
@@ -39,10 +39,17 @@ describe "User checks out a cart" do
     expect(page).to have_content("Checkout")
 
     click_on "Checkout"
-    byebug
+
     click_on "Order ##{Order.last.id}"
     save_and_open_page
     expect(current_path).to eq(user_order_path(@user, Order.last))
-    expect(page).to have_content()
+    expect(page).to have_content("Quantity: 1")
+    expect(page).to have_content("Subtotal: $#{@item.price}")
+    expect(page).to have_content("Status: Ordered")
+    expect(page).to have_content("Total Price: $#{@item.price}")
+
+    click_on @item.title
+
+    expect(current_path).to eq(item_path(@item))
   end
 end
