@@ -5,10 +5,11 @@ describe "User checks out a cart" do
     category = create(:category)
     @item = create(:item, category: category)
     @user = User.create(username: "erika", password: "test")
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    @user2 = User.create(username: "adrian", password: "test2")
   end
   
   it "and it will create an order associated with that user" do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     visit items_path
 
     click_on "Add to Cart"
@@ -28,6 +29,7 @@ describe "User checks out a cart" do
   end
 
   it "user can view order show page" do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     visit items_path
 
     click_on "Add to Cart"
@@ -39,6 +41,8 @@ describe "User checks out a cart" do
     expect(page).to have_content("Checkout")
 
     click_on "Checkout"
+
+    expect(page).to have_content("Cart: 0")
 
     click_on "Order ##{Order.last.id}"
 
@@ -52,5 +56,26 @@ describe "User checks out a cart" do
 
     expect(current_path).to eq(item_path(@item))
     expect(page).not_to have_content("Order Updated @")
+  end
+
+  it "user can only see their own orders" do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
+    visit items_path
+
+    click_on "Add to Cart"
+
+    click_on "View Cart"
+
+    click_on "Checkout"
+
+    expect(current_path).to eq('/orders')
+    expect(page).to have_content("Order ##{Order.last.id}")
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
+
+    visit "/orders"
+
+    expect(page).not_to have_content("Order ##{Order.last.id}")  
   end
 end

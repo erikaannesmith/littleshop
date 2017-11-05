@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
     @order.update(total_price: OrderItem.total_price_of_order(@order))
     @order.update(user_id: current_user.id)
     flash[:notice] = "Order was successfully placed"
-
+    @cart.contents.clear
     redirect_to orders_path
   end
 
