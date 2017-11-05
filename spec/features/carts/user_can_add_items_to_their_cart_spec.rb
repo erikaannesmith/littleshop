@@ -55,7 +55,7 @@ RSpec.feature "When a user adds an item to their cart" do
 
     it "user can checkout" do
         user = User.create(username: "Erika", password: "Erika")
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)        
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
         visit items_path
 
@@ -68,8 +68,8 @@ RSpec.feature "When a user adds an item to their cart" do
         click_link "Checkout"
 
         expect(current_path).to eq(user_orders_path(user))
-        # expect(current_path).to eq('/orders')        
-
         expect(user.orders.last.total_price).to eq(@item.price)
+
+        expect(current_path).to eq('/orders')
     end
 end
