@@ -38,7 +38,7 @@ class Cart
 
   def create_order_items(order)
     contents.each do |item_id, quantity|
-      orderitem = OrderItems.create(order: order,
+      orderitem = OrderItem.create(order: order,
                         item_id: item_id,
                         historical_price: Item.find(item_id).price,
                         quantity: quantity)
