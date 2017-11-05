@@ -1,38 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>Littleshop</title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
-<header>
-  <nav>
-    <div class="left_header">
-      <h1><%= link_to "Little Shop of Khakis and Chinos"%></h1>
-        <%= link_to "Account", root_path %>
-    </div>
-    <div class="align-right">
-      <% if session[:user_id].nil? %>
-      <%= render partial: "shared/login_form" %>
-      <%= link_to "Create Account", signup_path %>
-      <% else  %>
-      Welcome Back
-      <%= link_to "Log Out", logout_path %>
-      <% end %>
-      <div class="align-cart">
-        Cart: <%= @cart.total_count %>
-        <%= link_to "View Cart", '/cart' %>
-      </div>
-    </div>
-    </nav>
-    <% flash.each do |type, message| %>
-      <%= content_tag :div, sanitize(message), class: type %>
-    <% end %>
-  </header>
   <body>
-    <%= yield %>
+    <header>
+      <div class="left_header">
+        <h1><%= link_to "Little Shop of Khakis and Chinos"%></h1>
+          <%= link_to "Account", root_path %>
+      </div>
+      <nav>
+        <div class="align-right">
+          <% if session[:user_id].nil? %>
+          <%= render partial: "shared/login_form" %>
+          <%= link_to "Create Account", signup_path %>
+          <% else  %>
+          Welcome Back
+          <%= link_to "Log Out", logout_path %>
+          <% end %>
+          <div class="align-cart">
+            Cart: <%= @cart.total_count %>
+            <%= link_to "View Cart", '/cart' %>
+          </div>
+        </div>
+        </nav>
+        <% flash.each do |type, message| %>
+          <%= content_tag :div, sanitize(message), class: type %>
+        <% end %>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+  <%= yield %>
+    </section>
+
+
+    <footer></footer>
   </body>
 </html>

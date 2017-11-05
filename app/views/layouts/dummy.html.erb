@@ -8,29 +8,31 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
-    <nav>
-    <div class="align-left">
-      <h4><%= link_to "Little Shop of Khakis and Chinos", items_path %></h4>
-      <%= link_to "Account", root_path %>
+<header>
+  <nav>
+    <div class="left_header">
+      <h1><%= link_to "Little Shop of Khakis and Chinos"%></h1>
+        <%= link_to "Account", root_path %>
     </div>
     <div class="align-right">
       <% if session[:user_id].nil? %>
-      <%= render partial: "form" %>
+      <%= render partial: "shared/login_form" %>
       <%= link_to "Create Account", signup_path %>
       <% else  %>
       Welcome Back
       <%= link_to "Log Out", logout_path %>
       <% end %>
-      <div class="align-right">
-        <p>Cart: <%= @cart.total_count %></p>
+      <div class="align-cart">
+        Cart: <%= @cart.total_count %>
         <%= link_to "View Cart", '/cart' %>
       </div>
-    </div
+    </div>
     </nav>
     <% flash.each do |type, message| %>
       <%= content_tag :div, sanitize(message), class: type %>
     <% end %>
+  </header>
+  <body>
     <%= yield %>
   </body>
 </html>
