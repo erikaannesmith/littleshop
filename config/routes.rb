@@ -17,8 +17,11 @@ Rails.application.routes.draw do
     get '/dashboard' => 'dashboard#index', as: "dashboard"
   end
 
+  resources :users, only: [:new, :create, :show] do
+    resources :orders, only: [:show, :create]
+  end
 
-  resources :users, only: [:new, :create, :show]
+  get '/orders', to: "orders#index", as: :orders
 
   root 'welcome#index'
 
@@ -32,6 +35,4 @@ Rails.application.routes.draw do
 
   resources :categories, :except => [:show]
   get ':slug' => 'categories#show', as: :category_slug
-
-
 end

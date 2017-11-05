@@ -8,6 +8,9 @@ class Item < ApplicationRecord
 
   enum status: ["Active", "Retired"]
 
+  has_many :order_items
+  has_many :orders, through: :order_items
+
   def retired?
     status == "Retired"
   end
