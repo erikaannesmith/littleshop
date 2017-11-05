@@ -1,0 +1,7 @@
+<ul>
+  <% @orders.each do |order| %>
+    <li>
+      <%= link_to "Order ##{order.id}" %>
+    </li>
+  <% end %>
+</ul>
