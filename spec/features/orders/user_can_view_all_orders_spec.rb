@@ -41,7 +41,7 @@ describe "User checks out a cart" do
     click_on "Checkout"
 
     click_on "Order ##{Order.last.id}"
-    save_and_open_page
+
     expect(current_path).to eq(user_order_path(@user, Order.last))
     expect(page).to have_content("Quantity: 1")
     expect(page).to have_content("Subtotal: $#{@item.price}")
