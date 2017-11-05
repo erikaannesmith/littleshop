@@ -15,3 +15,7 @@
 <p>Status: <%= @order.status.titleize %></p>
 <p>Total Price: <%= number_to_currency(@order.total_price) %></p>
 <p>Order Submitted @ <%= @order.created_at %></p>
+
+<% if @order.status == ("completed"||"cancelled") %>
+  <p>Order Updated @ <%= @order.updated_at %></p>
+<% end %>

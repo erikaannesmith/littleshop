@@ -51,5 +51,6 @@ describe "User checks out a cart" do
     click_on @item.title
 
     expect(current_path).to eq(item_path(@item))
+    expect(page).not_to have_content("Order Updated @")
   end
 end
