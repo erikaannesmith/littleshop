@@ -1,0 +1,8 @@
+<h1>Order #<%= @order.id %></h1>
+
+<p>Items Purchased:
+<ul>
+  <% @order.items.each do |item| %>
+    <li><%= item.title %></li>
+  <% end %>
+</ul>
