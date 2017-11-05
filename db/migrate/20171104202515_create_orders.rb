@@ -1,8 +1,7 @@
 class CreateOrders < ActiveRecord::Migration[5.1]
   def change
     create_table :orders do |t|
-      enable_extension "hstore"
-      t.string :status, default: 0
+      t.integer :status, default: 0
       t.float :total_price
       
       t.timestamps
