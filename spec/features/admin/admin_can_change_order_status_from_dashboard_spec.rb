@@ -21,9 +21,14 @@ describe 'when an admin logs in' do
 
   it "the admin can see the order status of each order" do
     expect(page).to have_content(" - Status: #{Order.first.status}")
+    expect(page).to have_content(" - Status: #{Order.second.status}")
+    expect(page).to have_content(" - Status: #{Order.third.status}")
+    expect(page).to have_content(" - Status: #{Order.fourth.status}")
   end
 
-  it "the admin can click 'cancel' on orders that are paid or ordered" do
+  it "the admin can click 'cancel' on orders that are paid" do
+    click_link "Cancel", href: admin_cancel_order_path(Order.first)
 
+    expect(page).to have_content("Order ##{Order.first.id} - Status: Cancelled")
   end
 end
