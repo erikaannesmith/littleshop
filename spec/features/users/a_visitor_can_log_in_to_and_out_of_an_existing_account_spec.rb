@@ -17,7 +17,10 @@ describe "A visitor can go to the home page, click on a log in, and" do
   end
 
   it "will have a log out page that will redirect back to root index" do
-    user = User.create(username:"CheckOutMahKhakisBabySquirrel", password:"DiamondStuddedChinos" )
+    user = User.create(username:"CheckOutMahKhakisBabySquirrel", 
+                       password:"DiamondStuddedChinos",
+                       full_name: "Tym Joo",
+                       address: "1801 Arapahoe St Denver CO 80202" )
 
     visit root_path
 
