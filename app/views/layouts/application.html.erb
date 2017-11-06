@@ -11,8 +11,9 @@
   <body>
     <header>
       <div class="left_header">
-        <h1 class = "link home_link"><%= link_to "Little Shop of Khakis and Chinos"%></h1>
-        <%= link_to "Account", root_path, class: "link account"%>
+      <h1 class = "link home_link">
+        <%= link_to image_tag("header_log.png"), root_path%>
+      </h1>
       </div>
     <nav>
       <ul>
@@ -26,6 +27,7 @@
           <div class="align-cart">
           Cart: <%= @cart.total_count %>
           <%= link_to "View Cart", '/cart',  class:"view_cart" %>
+            <%= link_to "View Account", root_path, class: "link account"%>
           </div>
         </div>
     </nav>

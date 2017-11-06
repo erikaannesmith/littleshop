@@ -4,7 +4,7 @@
   header {
     background: #ADD8E6;
     color: black;
-    height: 110px;
+    height: 175px;
     padding: 0;
     top:0;
     display: inline-block;
@@ -18,12 +18,16 @@
 
   header h1{
     float: left;
-    font-size:22px;
+    height: 35px;
+    width: 35px;
+    margin-top: 0px;
+    margin-left: 0px;
+    top:0;
   }
 
   nav ul {
     padding-right: 5px;
-    padding-top: 37px;
+    padding-top:45px;
     right:0;
     float:right;
     display: flex;
@@ -37,18 +41,18 @@
 // }
 //
 //
-.left_header{
-    position:absolute;
-    float:left;
-    padding-left: 0px;
-    padding-right: 10px;
-    padding-top: 25px;
-    padding-bottom: 10px;
-    display:flex;
-    flex-direction: column;
-    top:0;
-    font-size: 22px;
-    height:50px;
-  }
+.left_header img {
+float: left;
+width:200px;
+height: 165px;
 
-  
+
+}
+
+.align-cart{
+  font-size: 18px;
+}
+
+.align-right{
+  font-size:18px;
+}
