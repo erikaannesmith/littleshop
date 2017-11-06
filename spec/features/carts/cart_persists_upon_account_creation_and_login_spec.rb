@@ -9,7 +9,7 @@ describe "When a visitor adds an item to the cart" do
       visit items_path
 
       click_link "Add to Cart"
-      
+
       expect(page).to have_content("Cart: 1")
   end
 
@@ -28,7 +28,7 @@ describe "When a visitor adds an item to the cart" do
       click_link "Create Account"
       fill_in "user[username]", with: "test-1"
       fill_in "user[password]", with: "test"
-
+      click_button "Create Account"
       expect(page).to have_content("Cart: 1")
     end
   end

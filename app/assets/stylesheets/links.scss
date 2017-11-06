@@ -1,0 +1,35 @@
+a{
+  text-decoration:none;
+}
+
+.link{
+  display: inline-flex;
+  margin-top: 10px;
+}
+
+.account{
+  font-size:18px;
+}
+.create_account{
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom:10px;
+}
+
+
+
+.log_out{
+  font-size: 18px;
+  margin-bottom:10px;
+  background-color: white;
+  width: 100px;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.view_cart{
+  margin-top: 10px;
+  font-size: 19px;
+  display:flex;
+  flex-direction: column;
+}

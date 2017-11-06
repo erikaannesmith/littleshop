@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:show]
     resources :items, only: [:index, :new, :create]
     get '/dashboard' => 'dashboard#index', as: "dashboard"
+    post '/modify/order', to: 'orders#modify', as: :modify_order
   end
 
   resources :users, only: [:new, :create, :show] do
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
 
   get '/orders', to: "orders#index", as: :orders
 
-  root 'welcome#index'
+  root 'items#index'
 
   get '/logout', to: 'sessions#destroy'
   get '/login', to: 'sessions#new'
