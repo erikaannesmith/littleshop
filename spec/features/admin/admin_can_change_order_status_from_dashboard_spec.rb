@@ -26,15 +26,38 @@ describe 'when an admin logs in' do
     expect(page).to have_content(" - Status: #{Order.fourth.status}")
   end
 
-  it "the admin can click 'cancel' on orders that are ordered" do
+  it "the admin can click 'Cancel' on orders that are ordered" do
     click_link "Cancel", href: admin_modify_order_path(Order.first, modify_type: "cancel")
 
     expect(page).to have_content("Order ##{Order.first.id} - Status: Cancelled")
   end
 
-  it "the admin can click 'cancel' on orders that are paid" do
+  it "the admin can click 'Cancel' on orders that are paid" do
     click_link "Cancel", href: admin_modify_order_path(Order.second, modify_type: "cancel")
 
     expect(page).to have_content("Order ##{Order.second.id} - Status: Cancelled")
+  end
+
+  it "the admin can click 'Mark As Paid' on orders that are ordered" do
+    click_link "Mark As Paid", href: admin_modify_order_path(Order.first, modify_type: "mark as paid")
+
+    expect(page).to have_content("Order ##{Order.first.id} - Status: Paid")
+  end
+
+  it "the admin can click 'Mark As Completed' on orders that are paid" do
+    click_link "Mark As Completed", href: admin_modify_order_path(Order.second, modify_type: "mark as completed")
+
+    expect(page).to have_content("Order ##{Order.second.id} - Status: Completed")
+  end
+
+  it "the admin should not see links for completed and cancelled orders" do
+    expect(page).not_to have_link(href: admin_modify_order_path(Order.third, modify_type: "cancel"))
+    expect(page).not_to have_link(href: admin_modify_order_path(Order.fourth, modify_type: "cancel"))
+
+    expect(page).not_to have_link(href: admin_modify_order_path(Order.third, modify_type: "mark as paid"))
+    expect(page).not_to have_link(href: admin_modify_order_path(Order.fourth, modify_type: "mark as paid"))
+
+    expect(page).not_to have_link(href: admin_modify_order_path(Order.third, modify_type: "mark as completed"))
+    expect(page).not_to have_link(href: admin_modify_order_path(Order.fourth, modify_type: "mark as completed"))
   end
 end
