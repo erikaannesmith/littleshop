@@ -24,7 +24,6 @@ describe "Admin views an individual order show page" do
 
     visit admin_order_path(@order)
 
-save_and_open_page
     expect(page).to have_content("Erika Smith")
     expect(page).to have_content("1801 Arapahoe St Denver CO 80202")
     expect(page).to have_link(@item.title)
