@@ -13,6 +13,9 @@ describe "A visitor can go to the home page and it" do
 
     fill_in 'user[username]', with: "CheckOutMahKhakisBabySquirrel"
     fill_in 'user[password]', with: "DiamondStuddedChinos"
+    fill_in 'user[full_name]', with: "Tym Joo"
+    fill_in 'user[address]', with: "1801 Arapahoe St Denver CO 80202"
+    
 
     click_button("Create Account")
 
