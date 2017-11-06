@@ -2,6 +2,7 @@
   <% @orders.each do |order| %>
     <li>
       <%= link_to "Order ##{order.id}" %> - Status: <%= order.status %>
+      <br>
       <%= (render partial: "shared/order_actions", locals: { order: order }) %>
     </li>
   <% end %>

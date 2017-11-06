@@ -8,4 +8,15 @@ class Order < ApplicationRecord
   end
 
   enum status: status_types
+
+  def change_status(new_status)
+    case new_status
+    when "cancel"
+      update(status: "Cancelled")
+    when "mark as paid"
+      update(status: "Paid")
+    when "mark as completed"
+      update(status: "Completed")
+    end
+  end
 end

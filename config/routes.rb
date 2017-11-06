@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :items, only: [:index, :new, :create]
     get '/dashboard' => 'dashboard#index', as: "dashboard"
-    post '/cancel/order', to: 'orders#cancel', as: :cancel_order
+    post '/modify/order', to: 'orders#modify', as: :modify_order
   end
 
   resources :users, only: [:new, :create, :show] do
