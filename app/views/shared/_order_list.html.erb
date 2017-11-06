@@ -2,7 +2,7 @@
   <% @orders.each do |order| %>
     <li>
       <%= link_to "Order ##{order.id}" %> - Status: <%= order.status %>
-      <%= link_to "Cancel", admin_cancel_order_path(order), method: :post %>
+      <%= (render partial: "shared/order_actions", locals: { order: order }) %>
     </li>
   <% end %>
 </ul>
