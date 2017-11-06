@@ -33,6 +33,7 @@ save_and_open_page
     expect(page).to have_content("Subtotal: $#{@item.price}")
     expect(page).to have_content("Total Price: $#{@item.price}")
     expect(page).to have_content("Status: Ordered")
+    expect(page).to have_content("Order Quantity: 1")
     
   end
 end

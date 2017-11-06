@@ -15,6 +15,7 @@
     <% end %>
   </ul>
 </p>
+<p>Order Quantity: <%= @order.order_items.count %></p>
 <p>Status: <%= @order.status.titleize %></p>
 <p>Total Price: <%= number_to_currency(@order.total_price) %></p>
 <p>Order Submitted @ <%= @order.created_at %></p>
