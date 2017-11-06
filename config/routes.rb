@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   get '/orders', to: "orders#index", as: :orders
 
-  root 'welcome#index'
+  root 'items#index'
 
   get '/logout', to: 'sessions#destroy'
   get '/login', to: 'sessions#new'

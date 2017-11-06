@@ -1,7 +1,7 @@
 
-
+<p>
 <% @categories.each do |category| %>
   <%= link_to category.name, category_slug_path(category.name).parameterize %>
 <% end %>
-
+</p>
 <%= render partial: 'display' %>

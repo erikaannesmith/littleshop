@@ -11,34 +11,30 @@
   <body>
     <header>
       <div class="left_header">
-        <h1><%= link_to "Little Shop of Khakis and Chinos"%></h1>
-          <%= link_to "Account", root_path %>
+        <h1 class = "link home_link"><%= link_to "Little Shop of Khakis and Chinos"%></h1>
+        <%= link_to "Account", root_path, class: "link account"%>
       </div>
-      <nav>
+    <nav>
+      <ul>
         <div class="align-right">
           <% if session[:user_id].nil? %>
-          <%= render partial: "shared/login_form" %>
-          <%= link_to "Create Account", signup_path %>
+            <%= render partial: "shared/login_form" %>
+            <%= link_to "Create Account", signup_path, class: "link create_account" %>
           <% else  %>
-          Welcome Back
-          <%= link_to "Log Out", logout_path %>
+            <%= link_to "Log Out", logout_path, class: "link log_out"%>
           <% end %>
           <div class="align-cart">
-            Cart: <%= @cart.total_count %>
-            <%= link_to "View Cart", '/cart' %>
+          Cart: <%= @cart.total_count %>
+          <%= link_to "View Cart", '/cart',  class:"view_cart" %>
           </div>
         </div>
-        </nav>
-        <% flash.each do |type, message| %>
-          <%= content_tag :div, sanitize(message), class: type %>
-        <% end %>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </nav>
-    </header>
+    </nav>
+      <% flash.each do |type, message| %>
+        <%= content_tag :div, sanitize(message), class: type %>
+      <% end %>
+      </ul>
+    </nav>
+  </header>
 
     <section>
   <%= yield %>

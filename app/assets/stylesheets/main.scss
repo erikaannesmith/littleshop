@@ -1,59 +1,54 @@
-nav{
-  background:white;
-  font-style: normal;
-  font-family:serif;
-  font-size:20px;
-  height:20%;
 
-header{
+
+
+  header {
     background: #ADD8E6;
-    color: white;
-    height: 100px;
-    padding: 0 25px
-}
+    color: black;
+    height: 110px;
+    padding: 0;
+    top:0;
+    display: inline-block;
+  }
 
+  header nav{
+    float: right;
+    display:flex;
+    flex-direction: column;
+  }
+
+  header h1{
+    float: left;
+    font-size:22px;
+  }
+
+  nav ul {
+    padding-right: 5px;
+    padding-top: 37px;
+    right:0;
+    float:right;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+
+// .left_header{
+//   display:flex;
+//   flex-direction: column;
+// }
+//
+//
 .left_header{
     position:absolute;
     float:left;
     padding-left: 0px;
     padding-right: 10px;
-    padding-top: 00px;
+    padding-top: 25px;
     padding-bottom: 10px;
     display:flex;
     flex-direction: column;
     top:0;
-    bottom:0;
+    font-size: 22px;
+    height:50px;
   }
 
-  .align-right{
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 35px;
-    padding-bottom: 20px;
-    top:0;
-    right:0;
-    float:right;
-    position:absolute;
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-
-  }
-
-
-  .align-cart{
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    top:0;
-    right:0;
-    flex-direction: column;
-    float:right;
-
-  }
-}
-
-body{
-  padding-top:100px;
-}
+  
