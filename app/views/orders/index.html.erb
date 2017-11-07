@@ -1,0 +1,9 @@
+<h1>All Orders for <%= current_user.username %></h1>
+
+<ul>
+<% @orders.each do |order| %>
+  <li>
+    <%= link_to "Order ##{order.id}", user_order_path(current_user, order) %>
+  </li>
+<% end %>
+</ul>
