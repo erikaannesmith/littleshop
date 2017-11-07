@@ -3,6 +3,10 @@ require 'rails_helper'
 describe "When an admin signs in" do
 
   before(:each) do
+    @user = User.create(username: "default_person_1",
+                        password: "password",
+                        full_name: "Default Person",
+                        address: "2020 Longest Rd, Denver, CO")
     @admin = User.create(username: "admin",
                         password: "password",
                         full_name: "Admin Person",
@@ -31,5 +35,11 @@ describe "When an admin signs in" do
       expect(User.last.address).to eq("1 Market St., Denver, CO")
       expect(current_path).to eq(admin_dashboard_path)
     end
+  end
+
+  it "the admin cannot edit another user's information" do
+    visit edit_user_path(@user)
+
+    expect(page).to have_content("The page you were looking for doesn't exist.")
   end
 end
