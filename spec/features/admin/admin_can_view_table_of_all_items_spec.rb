@@ -40,7 +40,7 @@ describe "Admin visits admin items page" do
     expect(current_path).to eq(edit_admin_item_path(item))
 
     fill_in "item[title]", with: "12345"
-    save_and_open_page
+    
     click_on "Update Item"
 
     expect(current_path).to eq(admin_items_path)
