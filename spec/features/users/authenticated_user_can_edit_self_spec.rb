@@ -7,16 +7,22 @@ describe "When an authenticated user visits their dashboard" do
                         password: "password",
                         full_name: "Default Person",
                         address: "2020 Longest Rd, Denver, CO")
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
 
   it "the user can see an Edit Account link" do
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
-
     visit dashboard_path
-
-    save_and_open_page
 
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_link("Edit Account")
+  end
+
+  it "the user can edit their own information" do
+    visit dashboard_path
+
+    click_link("Edit Account")
+
+    expect(current_path).to eq(edit_user_path(@user))
   end
 end
