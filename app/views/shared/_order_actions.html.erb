@@ -3,6 +3,6 @@
   <%= link_to "Cancel", admin_modify_order_path(order, modify_type: "cancel"), method: :post %>
   <%= link_to "Mark As Paid", admin_modify_order_path(order, modify_type: "mark as paid"), method: :post %>
 <% when "Paid" %>
-  <%= link_to "Cancel", admin_modify_order_path(order, modify_type: "cancel"), method: :post %>  
+  <%= link_to "Cancel", admin_modify_order_path(order, modify_type: "cancel"), method: :post %>
   <%= link_to "Mark As Completed", admin_modify_order_path(order, modify_type: "mark as completed"), method: :post %>
 <% end %>
