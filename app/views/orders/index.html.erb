@@ -1,8 +1,8 @@
-<h1>All Orders for <%= current_user.username %></h1>
+<h1 class= "cart_header">All Orders for <%= current_user.username %></h1>
 
-<ul>
+<ul class= "cart_parent">
 <% @orders.each do |order| %>
-  <li>
+  <li><br>
     <%= link_to "Order ##{order.id}", user_order_path(current_user, order) %>
   </li>
 <% end %>
