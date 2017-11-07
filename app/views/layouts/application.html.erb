@@ -30,7 +30,7 @@
           <% elsif current_user %>
           Cart: <%= @cart.total_count %>
           <%= link_to "View Cart", '/cart',  class:"view_cart" %>
-            <%= link_to "View Account", orders_path, class: "link account"%>
+            <%= link_to "View Account", dashboard_path, class: "link account"%>
           <% else %>
           <div class="align-cart">
           Cart: <%= @cart.total_count %>
