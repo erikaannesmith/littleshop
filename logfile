@@ -1,0 +1,23 @@
+2017-11-05 14:02:30.385 MST [6556] LOG:  listening on IPv6 address "::1", port 5432
+2017-11-05 14:02:30.385 MST [6556] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-11-05 14:02:30.386 MST [6556] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-11-05 14:02:30.399 MST [6557] LOG:  database system was shut down at 2017-11-05 14:02:26 MST
+2017-11-05 14:02:30.403 MST [6556] LOG:  database system is ready to accept connections
+2017-11-05 14:02:36.283 MST [6587] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.314 MST [6588] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.319 MST [6589] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.324 MST [6590] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.333 MST [6591] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.337 MST [6592] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.341 MST [6593] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.346 MST [6594] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.353 MST [6595] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.360 MST [6596] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.364 MST [6597] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.368 MST [6598] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.372 MST [6599] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.376 MST [6600] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.380 MST [6601] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.384 MST [6602] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.389 MST [6603] FATAL:  database "littleshop_test" does not exist
+2017-11-05 14:02:36.393 MST [6604] FATAL:  database "littleshop_test" does not exist

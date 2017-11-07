@@ -13,7 +13,7 @@
 <% end %>
 <p>Total Price of Cart: <%= number_to_currency(@cart.total_price) %>
 </ul>
-
+<br>
 <% if current_user.nil? %>
   <%= link_to "Create Account", signup_path %>
   <%# right now, this goes straight to the create account path, where there is a link to where they can log in.. is that ok? %>
