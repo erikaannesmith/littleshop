@@ -28,7 +28,7 @@ describe "When a visitor adds an item to the cart" do
       click_link "Create Account"
       fill_in "user[username]", with: "test-1"
       fill_in "user[password]", with: "test"
-      click_button "Create Account"
+      click_button "Create User"
       expect(page).to have_content("Cart: 1")
     end
   end
