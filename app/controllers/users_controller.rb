@@ -24,13 +24,18 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    return render_404 if @user != current_user
   end
 
   def update
     user = User.find(params[:id])
     user.update(user_params)
 
-    redirect_to dashboard_path
+    if current_user.admin?
+      redirect_to admin_dashboard_path
+    else
+      redirect_to dashboard_path
+    end
   end
 
   private
