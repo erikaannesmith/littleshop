@@ -1,0 +1,22 @@
+<h1>Order #<%= @order.id %></h1>
+<p>Customer: <%= @user.full_name %></p>
+<p>Shipping Address: <%= @user.address %></p>
+
+<p>Items Purchased:
+  <ul>
+    <% @order.items.each do |item| %>
+      <li><%= link_to item.title, item_path(item) %>
+        <ul>
+          <li>Quantity: <%= OrderItem.find_quantity(item, @order) %></li>
+          <li>Item Price: <%= number_to_currency(OrderItem.find_by(item: item, order: @order).historical_price) %></li>
+          <li>Subtotal: <%= number_to_currency(OrderItem.find_subtotal(item, @order)) %></li>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+</p>
+<p>Order Quantity: <%= @order.order_items.count %></p>
+<p>Status: <%= @order.status.titleize %></p>
+<p>Total Price: <%= number_to_currency(@order.total_price) %></p>
+<p>Order Submitted @ <%= @order.created_at %></p>
+

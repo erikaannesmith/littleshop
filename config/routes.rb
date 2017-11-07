@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   post '/cart', to: 'carts#remove', as: :remove_item
 
   namespace :admin do
+    resources :orders, only: [:show]
     resources :items, only: [:index, :new, :create]
     get '/dashboard' => 'dashboard#index', as: "dashboard"
+    post '/modify/order', to: 'orders#modify', as: :modify_order
   end
 
   resources :users, only: [:new, :create, :show] do

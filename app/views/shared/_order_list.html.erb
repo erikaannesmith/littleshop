@@ -1,0 +1,9 @@
+<ul>
+  <% @orders.each do |order| %>
+    <li>
+      <%= link_to "Order ##{order.id}", admin_order_path(order) %> - Status: <%= order.status %>
+      <br>
+      <%= (render partial: "shared/order_actions", locals: { order: order }) %>
+    </li>
+  <% end %>
+</ul>
