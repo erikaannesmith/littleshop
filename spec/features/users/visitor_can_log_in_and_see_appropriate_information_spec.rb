@@ -18,4 +18,8 @@ describe "When a visitor logs in and is directed to their show page" do
     expect(page).to have_content("Test User")
     expect(page).to have_content("2020 Market St., Denver, CO")
   end
+
+  it "they can see a link to their orders" do
+    expect(page).to have_link("Orders")
+  end
 end
