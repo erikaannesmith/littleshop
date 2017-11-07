@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :orders, only: [:show]
-    resources :items, only: [:index, :new, :create]
+    resources :items, only: [:index, :new, :create, :edit, :update]
     get '/dashboard' => 'dashboard#index', as: "dashboard"
     post '/modify/order', to: 'orders#modify', as: :modify_order
   end

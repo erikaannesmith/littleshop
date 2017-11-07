@@ -2,6 +2,7 @@ class Admin::DashboardController < Admin::BaseController
 
   def index
     @orders = choose_orders
+    @user = current_user
   end
 
   private

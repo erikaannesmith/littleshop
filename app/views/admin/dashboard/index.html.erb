@@ -1,5 +1,8 @@
 <h4 id= "admin_dash_header">Admin Dashboard</h4>
 
+<%= link_to "All Items", admin_items_path %>
+<p><%= link_to "Edit Account", edit_user_path(@user) %></p>
+
 <% @orders.status_types.each do |type| %>
   <span id='order_type'><%= link_to type, admin_dashboard_path(order_type: type) %></span>
 <% end %>
