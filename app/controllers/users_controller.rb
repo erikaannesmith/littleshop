@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if current_user == @user
       @user = current_user
+      redirect_to dashboard_path
     else
       render_404
     end

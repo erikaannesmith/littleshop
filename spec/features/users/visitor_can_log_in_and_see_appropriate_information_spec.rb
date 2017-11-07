@@ -25,7 +25,7 @@ describe "When a visitor logs in and is directed to their show page" do
   end
 
   it "they can see a link to their orders" do
-    expect(page).to have_link("Orders")
+    expect(page).to have_link("All Orders")
   end
 
   it "they cannot see another users show page" do
