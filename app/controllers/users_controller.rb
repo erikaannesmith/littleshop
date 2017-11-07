@@ -27,12 +27,15 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
+    user = User.find(params[:id])
+    user.update(user_params)
+
+    redirect_to dashboard_path
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :address, :full_name)
   end
 end

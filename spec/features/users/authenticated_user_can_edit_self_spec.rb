@@ -34,5 +34,6 @@ describe "When an authenticated user visits their dashboard" do
     expect(User.last.username).to eq("new_name")
     expect(User.last.full_name).to eq("New Name")
     expect(User.last.address).to eq("1 Market St., Denver, CO")
+    expect(current_path).to eq(dashboard_path)
   end
 end
