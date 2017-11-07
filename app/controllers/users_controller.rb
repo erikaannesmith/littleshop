@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    return render_404 if @user != current_user
   end
 
   def update
