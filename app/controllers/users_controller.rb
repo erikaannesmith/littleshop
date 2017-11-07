@@ -15,16 +15,27 @@ class UsersController < ApplicationController
   end
 
   def show
-    if session[:user_id].nil?
-      render_404
+    if current_user
+      @user = current_user
     else
-      @user = User.find(session[:user_id])
+      render_404
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    user = User.find(params[:id])
+    user.update(user_params)
+
+    redirect_to dashboard_path
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :address, :full_name)
   end
 end

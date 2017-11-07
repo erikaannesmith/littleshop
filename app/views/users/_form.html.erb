@@ -1,11 +1,11 @@
-<%= form_for(:user, url: users_path) do |f| %>
+<%= form_for(@user) do |f| %>
 <%= f.label               :username %>
 <%= f.text_field          :username %>
 <%= f.label               :password %>
 <%= f.password_field      :password %>
-<%= f.label               :full_name%>  
+<%= f.label               :full_name%>
 <%= f.text_field          :full_name%>
-<%= f.label               :address  %>  
+<%= f.label               :address  %>
 <%= f.text_field          :address  %>
-<%= f.submit      "Create Account" %>
+<%= f.submit %>
 <% end %>
