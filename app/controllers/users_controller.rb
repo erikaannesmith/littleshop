@@ -31,7 +31,11 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.update(user_params)
 
-    redirect_to dashboard_path
+    if current_user.admin?
+      redirect_to admin_dashboard_path
+    else
+      redirect_to dashboard_path
+    end
   end
 
   private
