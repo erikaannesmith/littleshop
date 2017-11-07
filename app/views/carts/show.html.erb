@@ -1,12 +1,13 @@
-<ul>
+<ul class="cart_parent">
 <% @items.each do |item| %>
   <li>Item: <%= item.title %><br/>
   Description: <%= item.description %><br/>
-  Price: <%= number_to_currency(item.price) %>
-  Quantity: <%= @cart.count_of(item.id) %>
-  Subtotal: <%= number_to_currency(@cart.item_subtotal(item.id)) %>
-  <%= image_tag(item.image.thumb) %>
-  <%= link_to "-", subtract_item_path(item_id: item.id), method: :post %>
+  Price: <%= number_to_currency(item.price) %><br>
+  Quantity: <%= @cart.count_of(item.id) %><br>
+  Subtotal: <%= number_to_currency(@cart.item_subtotal(item.id)) %><br>
+  <br>
+  <%= image_tag(item.image.thumb) %><br>
+  <br><%= link_to "-", subtract_item_path(item_id: item.id), method: :post %>
   <%= link_to "+", add_item_path(item_id: item.id), method: :post %>
   <%= link_to "Remove", remove_item_path(item_id: item.id), method: :post %>
   </li>
@@ -14,9 +15,9 @@
 <p>Total Price of Cart: <%= number_to_currency(@cart.total_price) %>
 </ul>
 <br>
-<% if current_user.nil? %>
-  <%= link_to "Create Account", signup_path %>
+<p class= "cartcheckout"><% if current_user.nil? %>
+  <%= link_to "Create Account or Log In to Checkout", signup_path %>
   <%# right now, this goes straight to the create account path, where there is a link to where they can log in.. is that ok? %>
 <% elsif current_user.default? %>
-  <%= link_to "Checkout", user_orders_path(current_user), method: :post %>
-<% end %>
+  <%= link_to "Create an Account or Log In to Checkout", user_orders_path(current_user), method: :post %>
+<% end %></p>
