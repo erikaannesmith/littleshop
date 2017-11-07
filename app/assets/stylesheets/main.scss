@@ -35,18 +35,10 @@
     text-align: right;
   }
 
-// .left_header{
-//   display:flex;
-//   flex-direction: column;
-// }
-//
-//
 .left_header img {
 float: left;
 width:200px;
 height: 165px;
-
-
 }
 
 .align-cart{
@@ -56,4 +48,17 @@ height: 165px;
 .align-right{
   font-size:18px;
   padding-right: 10px;
+}
+
+.cart_parent{
+  padding-left: 20px;
+  font-size: 24px;
+  padding-bottom: 20px;
+
+}
+
+.cart_header{
+  text-align:center;
+  padding-top: 20px;
+  font-size: 32px;
 }
