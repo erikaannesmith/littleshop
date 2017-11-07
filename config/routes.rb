@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
 
+  resources :users, only: [:edit, :update]
   get '/dashboard' => "users#show", as: "dashboard"
 
   resources :categories, :except => [:show]
