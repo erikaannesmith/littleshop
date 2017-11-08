@@ -29,8 +29,8 @@ describe "When a visitor logs in and is directed to their show page" do
   end
 
   it "they cannot see another users show page" do
-    visit user_path(@other_user)
+    visit dashboard_path
 
-    expect(page).to have_content("The page you were looking for doesn't exist.")
+    expect(page).not_to have_content("other_test_user")
   end
 end
