@@ -21,8 +21,6 @@ class Order < ApplicationRecord
   end
 
   def order_quantity
-    order_items.map do |item|
-      item.quantity
-    end.reduce(:+)
+    order_items.total_quantity
   end
 end
