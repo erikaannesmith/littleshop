@@ -19,4 +19,10 @@ class Order < ApplicationRecord
       update(status: "Completed")
     end
   end
+
+  def order_quantity
+    order_items.map do |item|
+      item.quantity
+    end.reduce(:+)
+  end
 end

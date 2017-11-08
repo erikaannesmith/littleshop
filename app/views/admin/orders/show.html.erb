@@ -16,9 +16,7 @@
   </ul>
 </p>
 
-<p>Order Quantity: <% @order.order_items.each do |item| %>
-                      <%= item.quantity %>
-                      <% end.reduce(:+) %></p>
+<p>Order Quantity: <%= @order.order_quantity %></p>
 <p>Status: <%= @order.status.titleize %></p>
 <p>Total Price: <%= number_to_currency(@order.total_price) %></p>
 <p>Order Submitted @ <%= @order.created_at %></p>
