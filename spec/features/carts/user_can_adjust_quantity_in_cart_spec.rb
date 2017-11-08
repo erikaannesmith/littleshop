@@ -13,12 +13,12 @@ describe "When a user visits the cart" do
 
     click_on "View Cart"
 
-    expect(page).to have_content("Quantity: 2")
-    expect(page).to have_content("Quantity: 1")
+    expect(page).to have_content("2")
+    expect(page).to have_content("1")
 
     click_link "+", href: "/cart_add?item_id=#{items[0].id}"
 
-    expect(page).to have_content("Quantity: 3")
+    expect(page).to have_content("3")
     expect(page).to have_content("Subtotal: $#{items[0].price * 3}")
   end
 
@@ -35,6 +35,6 @@ describe "When a user visits the cart" do
 
     click_link "-", href: "/cart_sub?item_id=#{items[0].id}"
 
-    expect(page).to have_content("Quantity: 1")
+    expect(page).to have_content("1")
   end
 end

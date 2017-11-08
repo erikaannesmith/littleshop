@@ -32,7 +32,9 @@ describe 'an authenticated user cannot view' do
     expect(page).to have_content("The page you were looking for doesn't exist. You may have mistyped the address or the page may have moved. If you are the application owner check the logs for more information.")
   end
 
-  xit 'also cannot use admin functionality and the user cant make themselves an admin' do
+  it 'also cannot use admin functionality and the user cant make themselves an admin' do
+    visit signup_path
 
+    expect(page).not_to have_content("Role")
   end
 end
