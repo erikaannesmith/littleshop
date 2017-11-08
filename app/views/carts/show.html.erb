@@ -32,5 +32,5 @@
 <p class= "cartcheckout"><% if current_user.nil? %>
   <%= link_to "Create Account or Log In to Checkout", signup_path %>
 <% elsif current_user.default? %>
-  <%= link_to "Create an Account or Log In to Checkout", user_orders_path(current_user), method: :post %>
+  <%= link_to "Checkout", user_orders_path(current_user), method: :post %>
 <% end %></p>
