@@ -35,7 +35,9 @@
           <div class="align-cart">
           Cart: <%= @cart.total_count %>
           <%= link_to "View Cart", '/cart',  class:"view_cart" %>
-            <%= link_to "View Account", root_path, class: "link account"%>
+            <% if !current_user.nil? %>
+              <%= link_to "View Account", root_path, class: "link account"%>
+            <% end %>
             <% end %>
           </div>
         </div>
