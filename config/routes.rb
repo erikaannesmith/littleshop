@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :items
+  resources :items, only: [:index, :show]
 
   resources :carts
 
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     post '/modify/order', to: 'orders#modify', as: :modify_order
   end
 
-  resources :users, only: [:new, :create] do
+  resources :users, only: [:new, :create, :edit, :update] do
     resources :orders, only: [:show, :create]
   end
 
@@ -33,9 +33,7 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
 
-  resources :users, only: [:edit, :update]
   get '/dashboard' => "users#show", as: "dashboard"
 
-  resources :categories, :except => [:show]
   get ':slug' => 'categories#show', as: :category_slug
 end
