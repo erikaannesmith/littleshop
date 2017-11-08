@@ -19,4 +19,8 @@ class Order < ApplicationRecord
       update(status: "Completed")
     end
   end
+
+  def order_quantity
+    order_items.total_quantity
+  end
 end
