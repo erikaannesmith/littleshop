@@ -9,7 +9,7 @@ describe 'when an admin logs in and visits admin dashboard' do
       visit admin_dashboard_path
 
       expect(page).to have_content("Admin Dashboard")
-
+      expect(page).to have_link("Create Item")
     end
 
     scenario 'when a registered user tries to access admin dashboard they get a 404' do

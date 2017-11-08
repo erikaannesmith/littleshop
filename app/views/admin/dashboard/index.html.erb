@@ -2,6 +2,7 @@
 
 <%= link_to "All Items", admin_items_path %>
 <p><%= link_to "Edit Account", edit_user_path(@user) %></p>
+<p><%= link_to "Create Item", new_admin_item_path %></p>
 
 <% @orders.status_types.each do |type| %>
   <span id='order_type'><%= link_to type, admin_dashboard_path(order_type: type) %></span>

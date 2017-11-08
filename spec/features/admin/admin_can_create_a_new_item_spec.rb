@@ -1,12 +1,14 @@
 require 'rails_helper'
 
-describe "When an admin visits 'admin/items/new', enters item information, and clicks Create Item" do
+describe "When an admin visits dashboard, clicks Create Item, enters item information, and clicks Create Item" do
   it "the admin has created a new item" do
     category = create(:category)
     admin = User.create(username: "admin", password: "password", role: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-    visit new_admin_item_path
+    visit admin_dashboard_path
+
+    click_link "Create Item"
 
     fill_in "item[title]", with: "Item 1"
     fill_in "item[description]", with: "This is an awesome item."
