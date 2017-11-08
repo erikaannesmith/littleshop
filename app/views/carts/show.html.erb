@@ -10,8 +10,8 @@
     <th>Subtotal</th>
     <th>Actions</th>
   </tr>
-  <tr>
     <% @items.each do |item| %>
+  <tr>
       <td><%= image_tag(item.image.thumb) %></td>
       <td><%= item.title %></td>
       <td><%= item.description %></td>
@@ -22,8 +22,8 @@
           <%= link_to "+", add_item_path(item_id: item.id), method: :post %>
           <%= link_to "Remove", remove_item_path(item_id: item.id), method: :post %>
       </td>
-    <% end %>
   </tr>
+    <% end %>
 </table>
 <br/>
 <p>Total Price of Cart: <%= number_to_currency(@cart.total_price) %>
