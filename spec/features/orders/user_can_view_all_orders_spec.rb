@@ -25,7 +25,7 @@ describe "User checks out a cart" do
     expect(current_path).to eq('/orders')
     expect(page).to have_content("All Orders for #{@user.username}")
 
-    expect(page).to have_content("Order ##{Order.last.id}")
+    expect(page).to have_content("##{Order.last.id}")
   end
 
   it "user can view order show page" do
@@ -44,7 +44,7 @@ describe "User checks out a cart" do
 
     expect(page).to have_content("Cart: 0")
 
-    click_on "Order ##{Order.last.id}"
+    click_on "##{Order.last.id}"
 
     expect(current_path).to eq(user_order_path(@user, Order.last))
     expect(page).to have_content("Quantity: 1")
@@ -70,7 +70,7 @@ describe "User checks out a cart" do
     click_on "Checkout"
 
     expect(current_path).to eq('/orders')
-    expect(page).to have_content("Order ##{Order.last.id}")
+    expect(page).to have_content("##{Order.last.id}")
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
 
