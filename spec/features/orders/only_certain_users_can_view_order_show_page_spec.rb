@@ -32,4 +32,10 @@ describe "Once an order is placed" do
     expect(page).to have_content("The page you were looking for doesn't exist.")
   end
 
+  it "a visitor cannot view an order show page" do
+    visit user_order_path(@user, @order)
+
+    expect(page).to have_content("The page you were looking for doesn't exist.")
+  end
+
 end
