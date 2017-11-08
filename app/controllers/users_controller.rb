@@ -15,10 +15,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    if current_user == @user
+    if current_user
       @user = current_user
-      redirect_to dashboard_path
     else
       render_404
     end

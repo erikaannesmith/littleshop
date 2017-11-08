@@ -15,7 +15,7 @@ describe "When a visitor logs in and is directed to their show page" do
                       )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
-    visit user_path(@user)
+    visit dashboard_path
   end
 
   it "they see their account information" do
