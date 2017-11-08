@@ -5,7 +5,12 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    user = User.find(params[:user_id])
+    if (current_user == user) || (current_user.admin?)
+      @order = Order.find(params[:id])
+    else
+      render_404
+    end
   end
 
   def create
