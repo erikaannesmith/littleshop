@@ -1,12 +1,13 @@
 <ul>
-    <li>Item: <%= @item.title %><br/></li>
-    <li>Description: <%= @item.description %><br/></li>
-    <li>Price: <%= number_to_currency(@item.price) %><br/></li>
-    <li>Category: <%= link_to @item.category.name, "/#{@item.category.slug}" %>
-    <%= image_tag(@item.image) %>
+    <p id= "image_align"><%= image_tag(@item.image) %> </p>
     <% if @item.retired? %>
       <div>Item Retired</div>
     <% else %>
-      <%= link_to "Add to Cart", carts_path(item_id: @item.id) , method: :post %>
+      <p class="spacing"><%= link_to "Add to Cart", carts_path(item_id: @item.id) , method: :post %></p>
     <% end %>
+    <li class="spacing">Item: <%= @item.title %><br/></li>
+    <li class="spacing">Description: <%= @item.description %><br/></li>
+    <li class="spacing">Price: <%= number_to_currency(@item.price) %><br/></li>
+    <li class="spacing">Category: <%= link_to @item.category.name, "/#{@item.category.slug}" %>
+
 </ul>

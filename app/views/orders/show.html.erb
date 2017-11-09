@@ -1,23 +1,21 @@
-<h1>Order #<%= @order.id %></h1>
+<h1 id= "order_head">Order #<%= @order.id %></h1>
 
-<p>Items Purchased:
+<p class="bold_purchase_style">Items Purchased:
   <ul>
     <% @order.items.each do |item| %>
-      <li><%= link_to item.title, item_path(item) %>
-        <ul>
-          <li>Quantity: <%= OrderItem.find_quantity(item, @order) %></li>
-          <li>Subtotal: <%= number_to_currency(OrderItem.find_subtotal(item, @order)) %></li>
+      <li class="purchase_style"><%= link_to item.title, item_path(item) %>
+        <ul class="purchase_style">
+          <li class="purchase_style" >Quantity: <%= OrderItem.find_quantity(item, @order) %></li>
+          <li class="purchase_style">Subtotal: <%= number_to_currency(OrderItem.find_subtotal(item, @order)) %></li>
         </ul>
       </li>
     <% end %>
   </ul>
 </p>
-<p>Status: <%= @order.status.titleize %></p>
-<p>Total Price: <%= number_to_currency(@order.total_price) %></p>
-<p>Order Submitted @ <%= @order.created_at %></p>
+<p class="purchase_style">Status: <%= @order.status.titleize %></p>
+<p class="purchase_style">Total Price: <%= number_to_currency(@order.total_price) %></p>
+<p class="purchase_style">Order Submitted @ <%= @order.created_at %></p>
 
 <% if @order.status == ("Completed"||"Cancelled") %>
   <p>Order <%= @order.status %> @ <%= @order.updated_at %></p>
 <% end %>
-
-
