@@ -14,4 +14,7 @@ class OrderItem < ApplicationRecord
     find_by(item: item, order: order).inline_total
   end
 
+  def self.total_quantity
+    sum(:quantity)
+  end
 end

@@ -19,7 +19,7 @@ describe "When a user visits the cart" do
     click_link "+", href: "/cart_add?item_id=#{items[0].id}"
 
     expect(page).to have_content("3")
-    expect(page).to have_content("Subtotal: $#{items[0].price * 3}")
+    expect(page).to have_content("$#{items[0].price * 3}")
   end
 
   it "the user can decrease the quantity of an item" do

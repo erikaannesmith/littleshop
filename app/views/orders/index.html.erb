@@ -1,9 +1,19 @@
 <h1 class= "cart_header">All Orders for <%= current_user.username %></h1>
 
-<ul class= "cart_parent">
-<% @orders.each do |order| %>
-  <li><br>
-    <%= link_to "Order ##{order.id}", user_order_path(current_user, order) %>
-  </li>
-<% end %>
-</ul>
+
+<table>
+  <tr>
+    <th>Order</th>
+    <th>User ID</th>
+    <th>Submitted @</th>
+  </tr>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= link_to "##{order.id}", user_order_path(current_user, order) %></td>
+      <td><%= order.user_id %></td>
+      <td><%= order.created_at %></td>
+    </tr>
+  <% end %>
+</table>
+
+

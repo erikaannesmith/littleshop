@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     post '/modify/order', to: 'orders#modify', as: :modify_order
   end
 
-  resources :users, only: [:new, :create, :show] do
+  resources :users, only: [:new, :create] do
     resources :orders, only: [:show, :create]
   end
 
