@@ -26,10 +26,8 @@
           <% end %>
           <% if  current_user && current_user.admin?%>
           <div class="align-cart">
-
           <%= link_to "View Account", admin_dashboard_path, class: "link account"%>
           <% elsif current_user %>
-          <div class="align-cart">
           Cart: <%= @cart.total_count %>
           <%= link_to "View Cart", '/cart',  class:"view_cart" %>
             <%= link_to "View Account", dashboard_path, class: "link account"%>
