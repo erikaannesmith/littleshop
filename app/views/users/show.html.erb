@@ -1,7 +1,9 @@
 <h1 class="login">Welcome back <%= @user.username %></h1>
 
+<div class="user_dashboard">
+  <%= link_to "View All Orders", orders_path %>
+</div>
 <br>
-Check out our collection of Hot Pants!
-<br>
-Khakis and Chinos...sooo hot right now.
+<div class="user_dashboard">
 <p><%= link_to "Edit Account", edit_user_path(@user) %></p>
+</div>
