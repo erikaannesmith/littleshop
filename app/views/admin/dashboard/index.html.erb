@@ -5,7 +5,7 @@
 <p><%= link_to "Create Item", new_admin_item_path %></p>
 
 <% @orders.status_types.each do |type| %>
-  <span id='order_type'><%= link_to type, admin_dashboard_path(order_type: type) %></span>
+  <span id='order_type'><%= link_to type, admin_dashboard_path(order_type: type) %>(<%= @orders.status_count(type) %>)</span>
 <% end %>
 
 <%= render partial: 'shared/order_list' %>

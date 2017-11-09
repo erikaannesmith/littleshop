@@ -23,4 +23,9 @@ class Order < ApplicationRecord
   def order_quantity
     order_items.total_quantity
   end
+
+  def self.status_count(type)
+    orders = Order.where(status: type)
+    orders.count
+  end
 end

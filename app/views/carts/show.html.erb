@@ -10,8 +10,8 @@
     <th>Subtotal</th>
     <th>Actions</th>
   </tr>
-  <tr>
     <% @items.each do |item| %>
+  <tr>
       <td><%= image_tag(item.image.thumb) %></td>
       <td><%= item.title %></td>
       <td><%= item.description %></td>
@@ -22,15 +22,15 @@
           <%= link_to "+", add_item_path(item_id: item.id), method: :post %>
           <%= link_to "Remove", remove_item_path(item_id: item.id), method: :post %>
       </td>
-    <% end %>
   </tr>
+    <% end %>
 </table>
 <br/>
 <p>Total Price of Cart: <%= number_to_currency(@cart.total_price) %>
 </ul>
 <br>
 <p class= "cartcheckout"><% if current_user.nil? %>
-  <%= link_to "Create Account or Log In to Checkout", signup_path %>
+  <%= link_to "Login or Create Account to Checkout", signup_path %>
 <% elsif current_user.default? %>
   <%= link_to "Checkout", user_orders_path(current_user), method: :post %>
 <% end %></p>
