@@ -40,6 +40,8 @@ nav ul {
 float: left;
 width:200px;
 height: 165px;
+
+
 }
 
 .align-cart{
@@ -51,42 +53,3 @@ height: 165px;
   padding-right: 10px;
 }
 
-.cart_parent{
-  padding-left: 20px;
-  font-size: 24px;
-  padding-bottom: 20px;
-
-}
-
-.cart_header{
-  text-align:center;
-  padding-top: 20px;
-  font-size: 32px;
-}
-
-.items_purchased_list{
-  padding-left:10px;
-  font-size:24px;
-}
-.bold_purchase_style{
-  font-style:italic;
-  font-size:28px;
-}
-.purchase_style{
-  padding-left: 10px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  font-size: 24px;
-}
-
-#items_purchased{
-  padding-left: 10px;
-  font-size: 24px;
-}
-
-
-#order_head{
-  padding-top: 24px;
-  font-size: 32px;
-  text-align: center;
-}
