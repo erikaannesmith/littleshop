@@ -1,15 +1,11 @@
 <h4 id= "admin_dash_header">Admin Dashboard</h4>
 
-
-<div class="organize_links">
-  <%= link_to "All Items", admin_items_path %><br>
-  <p><%= link_to "Edit Account", edit_user_path(@user) %></p>
-  <p><%= link_to "Create Item", new_admin_item_path %></p>
-</div>
-<p id="order_filter">Filter by Order Status</p>
+<%= link_to "All Items", admin_items_path %>
+<p><%= link_to "Edit Account", edit_user_path(@user) %></p>
+<p><%= link_to "Create Item", new_admin_item_path %></p>
 
 <% @orders.status_types.each do |type| %>
   <span id='order_type'><%= link_to type, admin_dashboard_path(order_type: type) %>(<%= @orders.status_count(type) %>)</span>
 <% end %>
-<p id="pipeline">Order Pipeline</p>
+
 <%= render partial: 'shared/order_list' %>
