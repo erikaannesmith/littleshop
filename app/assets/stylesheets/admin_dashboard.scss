@@ -16,3 +16,35 @@
   padding-top: 20px;
   font-size: 20px;
 }
+
+.organize_links{
+  padding-left: 20px;
+  display: flex;
+  padding-top: 20px;
+  font-size: 20px;
+  flex-direction:column;
+}
+
+.order_pipeline{
+  display:flex;
+  flex-direction:row;
+  text-align:left;
+}
+
+.order_status{
+  display:flex;
+  flex-direction:row;
+  text-align:left;
+}
+
+#order_filter{
+  font-size:24px;
+  padding-top:20px;
+  padding-left:20px;
+}
+
+#pipeline{
+  font-size:24px;
+  padding-top:20px;
+  padding-left:20px;
+}
