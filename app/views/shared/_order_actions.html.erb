@@ -1,8 +1,8 @@
 <% case order.status %>
 <% when "Ordered" %>
-  <div class= "order_status"><%= link_to "Cancel", admin_modify_order_path(order, modify_type: "cancel"), method: :post %>  
+  <div class= "order_status"><%= link_to "Cancel", admin_modify_order_path(order, modify_type: "cancel"), method: :post %>
   <%= link_to "Mark As Paid", admin_modify_order_path(order, modify_type: "mark as paid"), method: :post %></div>
 <% when "Paid" %>
-<div class= "order_pipeline"><%= link_to "Cancel", admin_modify_order_path(order, modify_type: "cancel"), method: :post %><br>
-  <%= link_to "Mark As Completed", admin_modify_order_path(order, modify_type: "mark as completed"), method: :post %></div>
+<div class= "order_pipeline"><%= link_to "Cancel", admin_modify_order_path(order, modify_type: "cancel"), method: :post %><br></div>
+<div class= "order_pipeline"><%= link_to "Mark As Completed", admin_modify_order_path(order, modify_type: "mark as completed"), method: :post %></div>
 <% end %>
